@@ -15,5 +15,6 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+# This is where you edit the Get Started Page (vignettes/USevolve.Rmd)
 library(USevolve)
 ```
