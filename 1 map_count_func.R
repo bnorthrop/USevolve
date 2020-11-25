@@ -12,7 +12,7 @@ countypres <- read.csv("/Users/blakenorthrop/Desktop/QAC356/Final Project Prep/E
 
 
 # covid <- read.csv("/Users/blakenorthrop/Desktop/QAC356/finalpackageprep/Data/US Covid (to Nov8).csv")
-# 
+#
 # covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
 
 
@@ -36,34 +36,34 @@ map_count <- function(data="state", Year, states=c(), log=TRUE){
     if(data=="county"){
       if (length(states)==0){
         filtered_map <- county_map
-        
-        filtered_results <- countypres %>% 
-          filter(year==Year) %>% 
-          group_by(region) } 
+
+        filtered_results <- countypres %>%
+          filter(year==Year) %>%
+          group_by(region) }
       else {
-        filtered_map <- county_map %>% 
+        filtered_map <- county_map %>%
           filter(state %in% states)
-        
-        filtered_results <- countypres %>% 
-          filter(state %in% states, year==Year) %>% 
+
+        filtered_results <- countypres %>%
+          filter(state %in% states, year==Year) %>%
           group_by(region) }
     }
     if(data=="state"){
       if (length(states)==0){
         filtered_map <- state_map
-        
-        filtered_results <- statepres %>% 
-          filter(year==Year) %>% 
+
+        filtered_results <- statepres %>%
+          filter(year==Year) %>%
           group_by(region)
       } else{
-        filtered_map <- state_map %>% 
+        filtered_map <- state_map %>%
           filter(state %in% states)
-        
-        filtered_results <- statepres %>% 
-          filter(state %in% states, year==Year) %>% 
+
+        filtered_results <- statepres %>%
+          filter(state %in% states, year==Year) %>%
           group_by(region) }
     }
-    
+
   }
   else if (Year == 2020){
     stop("Data not yet available") }
@@ -76,7 +76,7 @@ map_count <- function(data="state", Year, states=c(), log=TRUE){
       expand_limits(x = filtered_map$long, y = filtered_map$lat) +
       scale_fill_distiller("Voter Count", palette="YlOrRd", direction=1) +
       coord_map("albers", lat0=30, lat1=40) +
-      ggtitle("Count Map") } 
+      ggtitle("Count Map") }
   else{
     ggplot()+
       geom_map(data=filtered_map, aes(map_id= region), map = filtered_map) +
@@ -87,7 +87,7 @@ map_count <- function(data="state", Year, states=c(), log=TRUE){
       ggtitle("Count Map") }
 }
 
- 
+
 
 map_count()
 map_count(Year=2000, log=F)
