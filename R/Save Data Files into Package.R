@@ -15,4 +15,11 @@ json_counties <- geojson_read("/Users/blakenorthrop/Desktop/QAC356/USevolve/data
 
 ##################
 
-# save(state_map, file= "data/state_map.rda", compress = "xyz")
+# save(state_map, file= "/Users/blakenorthrop/Desktop/QAC356/USevolve/data/state_map.csv")
+# save(county_map, file= "/Users/blakenorthrop/Desktop/QAC356/USevolve/data/county_map.csv")
+# save(statepres, file= "/Users/blakenorthrop/Desktop/QAC356/USevolve/data/3 state president.csv")
+# save(countypres, file= "/Users/blakenorthrop/Desktop/QAC356/USevolve/data/2 county president.csv")
+# save(covid, file= "/Users/blakenorthrop/Desktop/QAC356/USevolve/data/US Covid (to Nov8).csv")
+# save(json_states, file= "/Users/blakenorthrop/Desktop/QAC356/USevolve/data/geojson_states.csv")
+# save(json_counties, file= "/Users/blakenorthrop/Desktop/QAC356/USevolve/data/geojson_counties.csv")
+

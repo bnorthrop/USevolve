@@ -1,8 +1,7 @@
-require(dplyr)
-require(ggplot2)
-require(maps)
+
 
 # Load map data
+
 state_map <- read.csv("data/state_map.csv")
 county_map <- read.csv("data/county_map.csv")
 
@@ -10,30 +9,31 @@ county_map <- read.csv("data/county_map.csv")
 statepres <- read.csv("data/3 state president.csv")
 countrypres <- read.csv("data/2 county president.csv")
 
+=======
 
 # covid <- read.csv("/Users/blakenorthrop/Desktop/QAC356/finalpackageprep/Data/US Covid (to Nov8).csv")
 #
 # covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
-
-
 ##################
-
 
 # Create restrictions on year based on what data set user calls
 ## if statement with error message if year not in specific list of election years for that state/county
 
 # Note: Does not work with longitudinal data (e.g. Covid changes over months)
 
-map_count <- function(data="state", Year, states=c(), log=TRUE){
-  if (data=="state" & missing(Year)){
+map_count <- function(level="state", Year, states=c(), log=TRUE){
+  require(dplyr)
+  require(ggplot2)
+  require(maps)
+  if (level=="state" & missing(Year)){
     Year=2016 }
-  if (data=="state"){
+  if (level=="state"){
     election_years <- c(1976, 1980, 1984, 1988, 1992, 1996, 2000, 2004, 2008, 2012, 2016) }
-  if(data=="county"){
+  if(level=="county"){
     Year=2016
     election_years <- c(2000, 2004, 2008, 2012, 2016) }
   if(Year %in% election_years){
-    if(data=="county"){
+    if(level=="county"){
       if (length(states)==0){
         filtered_map <- county_map
 
@@ -48,7 +48,7 @@ map_count <- function(data="state", Year, states=c(), log=TRUE){
           filter(state %in% states, year==Year) %>%
           group_by(region) }
     }
-    if(data=="state"){
+    if(level=="state"){
       if (length(states)==0){
         filtered_map <- state_map
 
