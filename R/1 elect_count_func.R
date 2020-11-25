@@ -1,6 +1,6 @@
-#' Map Count
+#' Election Count
 #'
-#' map_count creates a map of the United States with fill color based on the specified parameter.
+#' elect_count creates a map of the United States with fill color based on the specified parameter.
 #'
 #' @param level what region size to visualize (state or county).
 #' @param Year year. For built in election data, year must align with US election years.
@@ -95,8 +95,8 @@ elect_count <- function(level="state", Year, states=c(), log=TRUE){
       ggtitle("Count Map") }
 }
 
-# elect_count()
-# elect_count(Year=2000, log=F)
+elect_count()
+elect_count(Year=2000, log=F)
 # elect_count(Year=2020)
 # elect_count(Year=2019)
 #

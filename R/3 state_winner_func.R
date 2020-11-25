@@ -1,4 +1,3 @@
-
 #' State Winner
 #'
 #' state_winner displays a map of presidential election results by party on the state level
@@ -62,7 +61,7 @@ state_winner <- function(Year=2016, states=c()){
   }
 }
 
-# state_winner()
+state_winner()
 #
 # state_winner(Year = 1988)
 # state_winner(Year = 1990)
