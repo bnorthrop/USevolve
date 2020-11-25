@@ -1,12 +1,15 @@
 
 
 # Load map data
-state_map <- read.csv("/Users/blakenorthrop/Desktop/QAC356/USevolve/data/state_map.csv")
-county_map <- read.csv("/Users/blakenorthrop/Desktop/QAC356/finalpackageprep/Data/county_map.csv")
+
+state_map <- read.csv("data/state_map.csv")
+county_map <- read.csv("data/county_map.csv")
 
 # Load data used to fill map
-statepres <- read.csv("/Users/blakenorthrop/Desktop/QAC356/USevolve/data/3 state president.csv")
-countypres <- read.csv("/Users/blakenorthrop/Desktop/QAC356/USevolve/data/2 county president.csv")
+statepres <- read.csv("data/3 state president.csv")
+countrypres <- read.csv("data/2 county president.csv")
+
+=======
 
 # covid <- read.csv("/Users/blakenorthrop/Desktop/QAC356/finalpackageprep/Data/US Covid (to Nov8).csv")
 #
