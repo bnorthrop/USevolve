@@ -11,7 +11,7 @@ time_growth <- function(data=covid, state=c(), sum=FALSE, df_print=TRUE){
   #load data from data folder
   covid <- read.csv("data/US Covid (to Nov8).csv")
   covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
-
+  
   if(sum==TRUE){
     filtered_data <- data %>%
       filter(region %in% state) %>%

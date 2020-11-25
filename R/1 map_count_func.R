@@ -1,30 +1,38 @@
-
-
-# Load map data
-
-state_map <- read.csv("data/state_map.csv")
-county_map <- read.csv("data/county_map.csv")
-
-# Load data used to fill map
-statepres <- read.csv("data/3 state president.csv")
-countrypres <- read.csv("data/2 county president.csv")
-
-=======
-
-# covid <- read.csv("/Users/blakenorthrop/Desktop/QAC356/finalpackageprep/Data/US Covid (to Nov8).csv")
-#
-# covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
-##################
+#' Map Count
+#'
+#' map_count creates a map of the United States with fill color based on the specified parameter.
+#'
+#' @param level what region size to visualize (state or county).
+#' @param Year year. For built in election data, year must align with US election years.
+#' @param states list of states user wants to visualize.
+#' @param log fill based on log of count.
+#'
+#' @import dplyr ggplot2 maps
+#' @export
+#'
+#' @return a ggplot map
+#' @examples
+#' /dontrun{
+#' elect_count()
+#' elect_count(data="county", states = c("connecticut", "rhode island"), log=F)
+#' }
 
 # Create restrictions on year based on what data set user calls
 ## if statement with error message if year not in specific list of election years for that state/county
 
 # Note: Does not work with longitudinal data (e.g. Covid changes over months)
 
-map_count <- function(level="state", Year, states=c(), log=TRUE){
+elect_count <- function(level="state", Year, states=c(), log=TRUE){
   require(dplyr)
   require(ggplot2)
   require(maps)
+  # Load map data
+  state_map <- read.csv("data/state_map.csv")
+  county_map <- read.csv("data/county_map.csv")
+  # Load data used to fill map
+  statepres <- read.csv("data/3 state president.csv")
+  countrypres <- read.csv("data/2 county president.csv")
+
   if (level=="state" & missing(Year)){
     Year=2016 }
   if (level=="state"){
@@ -87,16 +95,14 @@ map_count <- function(level="state", Year, states=c(), log=TRUE){
       ggtitle("Count Map") }
 }
 
-
-
-map_count()
-map_count(Year=2000, log=F)
-map_count(Year=2020)
-map_count(Year=2019)
-
-map_count(data="county", states = c("connecticut", "rhode island"))
-map_count(data="county", states = c("connecticut", "rhode island"), log=F)
-map_count(data="county", Year= 1996, states = c("connecticut", "rhode island"))
+# elect_count()
+# elect_count(Year=2000, log=F)
+# elect_count(Year=2020)
+# elect_count(Year=2019)
+#
+# elect_count(data="county", states = c("connecticut", "rhode island"))
+# elect_count(data="county", states = c("connecticut", "rhode island"), log=F)
+# elect_count(data="county", Year= 1996, states = c("connecticut", "rhode island"))
 
 
 
