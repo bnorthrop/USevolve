@@ -1,3 +1,3 @@
 ##------------------------------------##
-## shea doesnt know how to use R or type apparently
+## shea is good at R yay women in stem
 ##------------------------------------##
