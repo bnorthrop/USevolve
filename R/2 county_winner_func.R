@@ -15,15 +15,16 @@
 #' county_winner(Year = 2000, states=c("texas", "oklahoma"))
 #' }
 
-county_map <- read.csv("/Users/blakenorthrop/Desktop/QAC356/Final Project Prep/Map Data/county_map.csv")
-
-countypres <- read.csv("/Users/blakenorthrop/Desktop/QAC356/Final Project Prep/Election Data/2 county president.csv")
 
 # Create Function
 county_winner <- function(Year=2016, states=c()){
   require(maps)
   require(dplyr)
   require(ggplot2)
+
+  #load data from data folder
+  county_map <- read.csv("data/county_map.csv")
+  countypres <- read.csv("data/2 county president.csv")
 
   county_election_years <- c(2000, 2004, 2008, 2012, 2016)
   if(Year %in% county_election_years){
