@@ -7,8 +7,8 @@ covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
 
 # Make function
 time_growth <- function(data=covid, state=c(), sum=FALSE, df_print=TRUE){
-  library(dplyr)
-  library(ggplot2)
+  require(dplyr)
+  require(ggplot2)
   if(sum==TRUE){
     filtered_data <- data %>%
       filter(region %in% state) %>%

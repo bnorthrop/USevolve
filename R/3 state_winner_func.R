@@ -1,9 +1,18 @@
-
-state_map <- read.csv("/Users/blakenorthrop/Desktop/QAC356/Final Project Prep/Map Data/state_map.csv")
-
-statepres <- read.csv("/Users/blakenorthrop/Desktop/QAC356/Final Project Prep/Election Data/3 state president.csv")
-
-########################
+#' State Winner
+#'
+#' state_winner displays a map of presidential election results by party on the state level
+#'
+#' @param Year United States Presidential Election year starting in 1976.
+#' @param states region to plot.
+#'
+#' @import dplyr ggplot2 maps
+#' @export
+#'
+#' @return a ggplot map
+#' @examples
+#' /dontrun{
+#' state_winner(Year = 1988)
+#' state_winner(Year = 2000, states=c("texas", "oklahoma"))}
 
 # Create function
 state_winner <- function(Year=2016, states=c()){
@@ -47,11 +56,11 @@ state_winner <- function(Year=2016, states=c()){
   }
 }
 
-state_winner()
-
-state_winner(Year = 1988)
-state_winner(Year = 1990)
-state_winner(Year = 2020)
-
-state_winner(Year = 2000, states=c("texas", "oklahoma"))
+# state_winner()
+#
+# state_winner(Year = 1988)
+# state_winner(Year = 1990)
+# state_winner(Year = 2020)
+#
+# state_winner(Year = 2000, states=c("texas", "oklahoma"))
 
