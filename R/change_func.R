@@ -1,7 +1,4 @@
 
-covid <- read.csv("/Users/blakenorthrop/Desktop/QAC356/finalpackageprep/Data/US Covid (to Nov8).csv")
-
-covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
 
 
 ## THIS FUNCTION IS NOWHERE NEAR COMPLETE
@@ -13,6 +10,10 @@ covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
 percent_change <- function(data=covid, state=c()){
   require(dplyr)
   require(ggplot2)
+  #load data from data folder
+  covid <- read.csv("data/US Covid (to Nov8).csv")
+  covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
+  
   filtered_data <- data %>%
     filter(region %in% state) %>%
     group_by(new_case, date)

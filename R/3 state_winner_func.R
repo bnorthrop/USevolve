@@ -1,3 +1,4 @@
+
 #' State Winner
 #'
 #' state_winner displays a map of presidential election results by party on the state level
@@ -19,6 +20,11 @@ state_winner <- function(Year=2016, states=c()){
   require(dplyr)
   require(ggplot2)
   require(maps)
+
+  #load data from data folder
+  state_map <- read.csv("data/state_map.csv")
+  statepres <- read.csv("data/3 state president.csv")
+
   state_election_years <- c(1976, 1980, 1984, 1988, 1992, 1996, 2000, 2004, 2008, 2012, 2016)
   if(Year %in% state_election_years){
 
