@@ -1,37 +1,52 @@
-require(dplyr)
-require(ggplot2)
-require(maps)
+#' County Winner
+#'
+#' county_winner displays a map of presidential election results by party on the county level
+#'
+#' @param Year United States Presidential Election year starting in 2000.
+#' @param states region to plot.
+#'
+#' @import dplyr ggplot2 maps
+#' @export
+#'
+#' @return a ggplot map
+#' @examples
+#' /dontrun{
+#' county_winner(Year = 2008)
+#' county_winner(Year = 2000, states=c("texas", "oklahoma"))
+#' }
 
 county_map <- read.csv("/Users/blakenorthrop/Desktop/QAC356/Final Project Prep/Map Data/county_map.csv")
 
 countypres <- read.csv("/Users/blakenorthrop/Desktop/QAC356/Final Project Prep/Election Data/2 county president.csv")
 
-########################
-
-# Create function
+# Create Function
 county_winner <- function(Year=2016, states=c()){
+  require(maps)
+  require(dplyr)
+  require(ggplot2)
+
   county_election_years <- c(2000, 2004, 2008, 2012, 2016)
   if(Year %in% county_election_years){
-    
+
     countypres <- na.omit(countypres)
     countypres$party[countypres$party != "democrat" & countypres$party != "republican"] <- "other"
     partycolor <- c("blue2", "red1", "yellow")
     names(partycolor) <- unique(countypres$party)
     ###########
     if(length(states)==0){
-      county_majority <- countypres %>% 
-        filter(year==Year) %>% 
-        group_by(region) %>% 
+      county_majority <- countypres %>%
+        filter(year==Year) %>%
+        group_by(region) %>%
         slice_max(county_percent)
     } else{
-      county_map <- county_map %>% 
+      county_map <- county_map %>%
         filter(state %in% states)
-      county_majority <- countypres %>% 
-        filter(state %in% states, year==Year) %>% 
-        group_by(region) %>% 
+      county_majority <- countypres %>%
+        filter(state %in% states, year==Year) %>%
+        group_by(region) %>%
         slice_max(county_percent)
     }
-    
+
     ggplot()+
       geom_map(data=county_map, aes(map_id= region), map = county_map) +
       geom_map(data=county_majority, aes(map_id= region, fill=party), map = county_map) +
@@ -48,12 +63,12 @@ county_winner <- function(Year=2016, states=c()){
   }
 }
 
-county_winner()
-
-county_winner(Year = 2008)
-county_winner(Year = 1996)
-
-county_winner(Year = 2000, states=c("texas", "oklahoma"))
+# county_winner()
+#
+# county_winner(Year = 2008)
+# county_winner(Year = 1996)
+#
+# county_winner(Year = 2000, states=c("texas", "oklahoma"))
 
 
 
