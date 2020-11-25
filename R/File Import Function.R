@@ -3,31 +3,31 @@
 
 # import data set
 import <- function(file){
-  
+
   # if no file specified, prompt user
   if(missing(file)) {
     file <- file.choose()
   }
-  
+
   # get file extension
   extension <- tools::file_ext(file)
-  
+
   # import data set
   if (extension == "sas7bdat")
     df <- haven::read_sas(file)
-  
+
   if (extension == "dta")
     df <- haven::read_stata(file)
-  
+
   if (extension == "sav")
     df <- haven::read_spss(file)
-    
+
   if (extension == "xlsx" | extension == "xls")
     df <- readxl::read_excel(file)
-  
+
   if (extension %notin% c("sas7bdat", "dta", "sav", "xlsx", "xls"))
     df <- vroom::vroom(file)
-  
+
   # return data frame
   return(df)
 }
@@ -36,15 +36,15 @@ import <- function(file){
 
 # import data set (3 dots allow us to specify options; e.g. which sheet we want from excel workbook)
 import <- function(file, ...){
-  
+
   # if no file specified, prompt user
   if(missing(file)) {
     file <- file.choose()
   }
-  
+
   # get file extension (& make sure its lower case)
   extension <- tolower(tools::file_ext(file))
-  
+
   # import data set
   df <- switch(extension,
                "sas7bdat" = haven::read_sas(file, ...),
@@ -54,7 +54,7 @@ import <- function(file, ...){
                "xls" = readxl::read_excel(file, ...),
                vroom:vroom(file)
                )
-  
+
   # return data frame
   return(as.data.frame(df))
 }
@@ -62,7 +62,7 @@ import <- function(file, ...){
 #########################
 
 # use (&test) the function
-mydata <- import("email.dta")
+# mydata <- import("email.dta")
 
 
 

@@ -12,10 +12,9 @@
 #'
 #' @return a ggplot map
 #' @examples
-#' /dontrun{
 #' elect_count()
 #' elect_count(data="county", states = c("connecticut", "rhode island"), log=F)
-#' }
+#'
 
 # Create restrictions on year based on what data set user calls
 ## if statement with error message if year not in specific list of election years for that state/county
@@ -95,8 +94,8 @@ elect_count <- function(level="state", Year, states=c(), log=TRUE){
       ggtitle("Count Map") }
 }
 
-elect_count()
-elect_count(Year=2000, log=F)
+# elect_count()
+# elect_count(Year=2000, log=F)
 # elect_count(Year=2020)
 # elect_count(Year=2019)
 #

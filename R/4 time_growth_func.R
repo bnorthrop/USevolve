@@ -13,10 +13,11 @@
 #'
 #' @return a data frame and ggplot graph
 #' @examples
-#' /dontrun{
 #' time_growth(states="colorado", df_print=F)
 #' time_growth(states=c("colorado", "nevada"), sum=T)
-#' time_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F) }
+#' time_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F)
+
+# EDIT SO YOU CAN CHANGE WHAT VALUE TO ANALYZE
 
 # Make function
 time_growth <- function(data=covid, states=c(), sum=FALSE, df_print=TRUE){
@@ -69,13 +70,13 @@ time_growth <- function(data=covid, states=c(), sum=FALSE, df_print=TRUE){
   }
 }
 
-time_growth(df_print=F, sum=T)
-time_growth(sum=T)
-
-time_growth(states="colorado")
-time_growth(states="colorado", df_print=F)
-
-time_growth(states=c("colorado", "nevada"), sum=T)
-time_growth(states=c("colorado", "nevada"))
-
-time_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F)
+# time_growth(df_print=F, sum=T)
+# time_growth(sum=T)
+#
+# time_growth(states="colorado")
+# time_growth(states="colorado", df_print=F)
+#
+# time_growth(states=c("colorado", "nevada"), sum=T)
+# time_growth(states=c("colorado", "nevada"))
+#
+# time_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F)

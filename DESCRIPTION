@@ -5,11 +5,7 @@ Authors@R:
     person(given = "Blake",
            family = "Northrop",
            role = c("aut", "cre"),
-           email = "bsnorthrop@wesleyan.edu"),
-    person(given = "Shea",
-           family = "Peretz",
-           role = c("aut", "cre"),
-           email = "lperetz@wesleyan.edu")
+           email = "bsnorthrop@wesleyan.edu")
 Description: USevolve simplifies plotting of US election maps and
     Covid-19 data over time.
 License: MIT + file LICENSE

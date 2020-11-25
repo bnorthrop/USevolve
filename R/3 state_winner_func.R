@@ -10,9 +10,8 @@
 #'
 #' @return a ggplot map
 #' @examples
-#' /dontrun{
 #' state_winner(Year = 1988)
-#' state_winner(Year = 2000, states=c("texas", "oklahoma"))}
+#' state_winner(Year = 2000, states=c("texas", "oklahoma"))
 
 # Create function
 state_winner <- function(Year=2016, states=c()){
@@ -61,7 +60,7 @@ state_winner <- function(Year=2016, states=c()){
   }
 }
 
-state_winner()
+# state_winner()
 #
 # state_winner(Year = 1988)
 # state_winner(Year = 1990)
