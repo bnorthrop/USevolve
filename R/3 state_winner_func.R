@@ -50,7 +50,7 @@ state_winner <- function(Year=2016, states=c()){
       expand_limits(x = state_map$long, y = state_map$lat) +
       scale_fill_manual(name = "party", values = partycolor) +
       coord_map("albers", lat0=30, lat1=40) +
-      ggtitle("State Winner Map")
+      ggtitle("State Winner Map", Year)
   }
   else if(Year == 2020){
     stop("Data not yet available")
@@ -60,7 +60,7 @@ state_winner <- function(Year=2016, states=c()){
   }
 }
 
-# state_winner()
+state_winner()
 #
 # state_winner(Year = 1988)
 # state_winner(Year = 1990)

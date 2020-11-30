@@ -52,7 +52,7 @@ county_winner <- function(Year=2016, states=c()){
       expand_limits(x = county_map$long, y = county_map$lat) +
       scale_fill_manual(name = "party", values = partycolor) +
       coord_map("albers", lat0=30, lat1=40) +
-      ggtitle("County Winner Map")
+      ggtitle("County Winner Map", Year)
   }
   else if(Year == 2020){
     stop("Data not yet available")

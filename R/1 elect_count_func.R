@@ -30,7 +30,7 @@ elect_count <- function(level="state", Year, states=c(), log=TRUE){
   county_map <- read.csv("data/county_map.csv")
   # Load data used to fill map
   statepres <- read.csv("data/3 state president.csv")
-  countrypres <- read.csv("data/2 county president.csv")
+  countypres <- read.csv("data/2 county president.csv")
 
   if (level=="state" & missing(Year)){
     Year=2016 }
@@ -83,7 +83,7 @@ elect_count <- function(level="state", Year, states=c(), log=TRUE){
       expand_limits(x = filtered_map$long, y = filtered_map$lat) +
       scale_fill_distiller("Voter Count", palette="YlOrRd", direction=1) +
       coord_map("albers", lat0=30, lat1=40) +
-      ggtitle("Count Map") }
+      ggtitle("Election Count Map", Year) }
   else{
     ggplot()+
       geom_map(data=filtered_map, aes(map_id= region), map = filtered_map) +
@@ -91,7 +91,7 @@ elect_count <- function(level="state", Year, states=c(), log=TRUE){
       expand_limits(x = filtered_map$long, y = filtered_map$lat) +
       scale_fill_distiller("Voter Count (Log)", palette="YlOrRd", direction=1, trans="log") +
       coord_map("albers", lat0=30, lat1=40) +
-      ggtitle("Count Map") }
+      ggtitle("Election Count Map", Year) }
 }
 
 # elect_count()
@@ -99,9 +99,9 @@ elect_count <- function(level="state", Year, states=c(), log=TRUE){
 # elect_count(Year=2020)
 # elect_count(Year=2019)
 #
-# elect_count(data="county", states = c("connecticut", "rhode island"))
-# elect_count(data="county", states = c("connecticut", "rhode island"), log=F)
-# elect_count(data="county", Year= 1996, states = c("connecticut", "rhode island"))
+# elect_count(level="county", states = c("connecticut", "rhode island"))
+# elect_count(level="county", states = c("connecticut", "rhode island"), log=F)
+# elect_count(level="county", Year= 1996, states = c("connecticut", "rhode island"))
 
 
 
