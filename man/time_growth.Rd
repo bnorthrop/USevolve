@@ -4,16 +4,16 @@
 \alias{time_growth}
 \title{Growth Over Time}
 \usage{
-time_growth(data = covid, states = c(), sum = FALSE, df_print = TRUE)
+time_growth(states = c(), Value, sum = FALSE, df_print = FALSE)
 }
 \arguments{
-\item{data}{a data frame. Default is Covid data.}
-
 \item{states}{region to analyze.}
 
 \item{sum}{take sum of all cases over states or treat states individually.}
 
 \item{df_print}{print a data frame or not.}
+
+\item{data}{a data frame. Default is Covid data.}
 }
 \value{
 a data frame and ggplot graph

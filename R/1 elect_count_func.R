@@ -100,7 +100,7 @@ elect_count <- function(level="state", Year, states=c(), log=TRUE){
 # elect_count(Year=2019)
 #
 # elect_count(level="county", states = c("connecticut", "rhode island"))
-# elect_count(level="county", states = c("connecticut", "rhode island"), log=F)
+# elect_count(Year=2008, level="county", states = c("connecticut", "rhode island"), log=F)
 # elect_count(level="county", Year= 1996, states = c("connecticut", "rhode island"))
 
 

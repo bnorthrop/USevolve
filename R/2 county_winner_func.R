@@ -67,7 +67,7 @@ county_winner <- function(Year=2016, states=c()){
 # county_winner(Year = 2008)
 # county_winner(Year = 1996)
 #
-# county_winner(Year = 2000, states=c("texas", "oklahoma"))
+county_winner(Year = 2000, states=c("texas", "oklahoma"))
 
 
 

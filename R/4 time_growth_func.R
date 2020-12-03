@@ -25,16 +25,18 @@ time_growth <- function(states=c(), Value, sum=FALSE, df_print=FALSE){
   require(ggplot2)
   require(plotly)
 
-  #load data from data folder
-  covid <- covid_update()
-  covid$date <- as.Date(covid$date, format="%m/%d/%Y")
+  # OLD WAY OF LOADING DATA
+  covid <- read.csv("data/US Covid (to Nov8).csv")
+  covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
 
-  # return(covid)
+  #load latest covid data
+  # covid <- covid_update()
+  # covid$date <- as.Date(covid$date, format="%m/%d/%Y")
 
   if(missing(Value)){
     Value <- "tot_cases"
   }
-
+    # ISSUE IN SUM SECTION --> Likely group_by
   if(sum==TRUE){
     if(length(states)==0){
       if(Value=="tot_cases"){

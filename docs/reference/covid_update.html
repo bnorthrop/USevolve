@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Growth Over Time — time_growth • USevolve</title>
+<title>covid_update — covid_update • USevolve</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Growth Over Time — time_growth" />
-<meta property="og:description" content="time_growth streamlines the process for plotting longitudinal changes in
-a variable over time." />
+<meta property="og:title" content="covid_update — covid_update" />
+<meta property="og:description" content="covid_update downloads and cleans the latest COVID-19 data from the CDC website." />
 
 
 
@@ -107,55 +106,24 @@ a variable over time." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Growth Over Time</h1>
+    <h1>covid_update</h1>
     
-    <div class="hidden name"><code>time_growth.Rd</code></div>
+    <div class="hidden name"><code>covid_update.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>time_growth streamlines the process for plotting longitudinal changes in
-a variable over time.</p>
+    <p>covid_update downloads and cleans the latest COVID-19 data from the CDC website.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>time_growth</span><span class='op'>(</span>states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>Value</span>, sum <span class='op'>=</span> <span class='cn'>FALSE</span>, df_print <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>covid_update</span><span class='op'>(</span><span class='op'>)</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>states</th>
-      <td><p>region to analyze.</p></td>
-    </tr>
-    <tr>
-      <th>sum</th>
-      <td><p>take sum of all cases over states or treat states individually.</p></td>
-    </tr>
-    <tr>
-      <th>df_print</th>
-      <td><p>print a data frame or not.</p></td>
-    </tr>
-    <tr>
-      <th>data</th>
-      <td><p>a data frame. Default is Covid data.</p></td>
-    </tr>
-    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a data frame and ggplot graph</p>
+    <p>a data frame</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>time_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='st'>"colorado"</span>, df_print<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘plotly’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    last_plot</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:stats’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:graphics’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    layout</span></div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/US Covid (to Nov8).csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div><div class='input'><span class='fu'>time_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span><span class='op'>)</span>, sum<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/US Covid (to Nov8).csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div><div class='input'><span class='fu'>time_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span>, <span class='st'>"florida"</span>, <span class='st'>"california"</span><span class='op'>)</span>, df_print<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/US Covid (to Nov8).csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div></pre>
+    <pre class="examples"></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
