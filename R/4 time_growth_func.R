@@ -20,14 +20,16 @@
 # EDIT SO YOU CAN CHANGE WHAT VALUE TO ANALYZE
 
 # Make function
-time_growth <- function(states=c(), Value, sum=FALSE, df_print=TRUE){
+time_growth <- function(states=c(), Value, sum=FALSE, df_print=FALSE){
   require(dplyr)
   require(ggplot2)
   require(plotly)
 
   #load data from data folder
-  covid <- read.csv("data/US Covid (to Nov8).csv")
-  covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
+  covid <- covid_update()
+  covid$date <- as.Date(covid$date, format="%m/%d/%Y")
+
+  # return(covid)
 
   if(missing(Value)){
     Value <- "tot_cases"
@@ -132,19 +134,20 @@ time_growth <- function(states=c(), Value, sum=FALSE, df_print=TRUE){
   }
 }
 
-# time_growth(df_print=F, sum=T)
-# time_growth(Value="new_cases", df_print=F, sum=T)
-# time_growth(Value="tot_cases", df_print=F, sum=T)
-# time_growth(Value="new_death", df_print=F, sum=T)
-# time_growth(Value="tot_death", df_print=F, sum=T)
-# time_growth(sum=T)
-#
-# time_growth(states="colorado")
-# time_growth(states=c("colorado", "wyoming", "virginia"), df_print=F)
-#
-# time_growth(states=c("colorado", "nevada"), sum=T)
-# time_growth(states=c("colorado", "nevada"))
-#
-# time_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F)
-# time_growth(Value="new_cases", states=c("colorado", "nevada", "florida", "california"), df_print=F)
-# time_growth(Value="tot_death", states=c("colorado", "nevada", "florida", "california"), df_print=F)
+
+time_growth(df_print=F, sum=T)
+time_growth(Value="new_cases", df_print=F, sum=T)
+time_growth(Value="tot_cases", df_print=F, sum=T)
+time_growth(Value="new_death", df_print=F, sum=T)
+time_growth(Value="tot_death", df_print=F, sum=T)
+time_growth(sum=T)
+
+time_growth(states="colorado")
+time_growth(states=c("colorado", "wyoming", "virginia"), df_print=F)
+
+time_growth(states=c("colorado", "nevada"), sum=T)
+time_growth(states=c("colorado", "nevada"))
+
+time_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F)
+time_growth(Value="new_cases", states=c("colorado", "nevada", "florida", "california"), df_print=F)
+time_growth(Value="tot_death", states=c("colorado", "nevada", "florida", "california"), df_print=F)
