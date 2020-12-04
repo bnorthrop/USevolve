@@ -10,7 +10,7 @@
 #' @import dplyr ggplot2 maps
 #' @export
 #'
-#' @return a ggplot map
+#' @return a ggplot map object.
 #' @examples
 #' elect_count()
 #' elect_count(data="county", states = c("connecticut", "rhode island"), log=F)
@@ -21,7 +21,7 @@
 
 # Note: Does not work with longitudinal data (e.g. Covid changes over months)
 
-elect_count <- function(level="state", Year, states=c(), log=TRUE){
+elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE, ...){
   require(dplyr)
   require(ggplot2)
   require(maps)
@@ -77,19 +77,19 @@ elect_count <- function(level="state", Year, states=c(), log=TRUE){
   else if (Year %in% 2020 == F){
     stop("Must enter a valid election year for region") }
   if(log==FALSE){
-    ggplot()+
+    ggplot(...)+
       geom_map(data=filtered_map, aes(map_id= region), map = filtered_map) +
       geom_map(data=filtered_results, aes(map_id= region, fill=totalvotes), map = filtered_map) +
       expand_limits(x = filtered_map$long, y = filtered_map$lat) +
-      scale_fill_distiller("Voter Count", palette="YlOrRd", direction=1) +
+      scale_fill_distiller("Voter Count", palette=pal, direction=1) +
       coord_map("albers", lat0=30, lat1=40) +
       ggtitle("Election Count Map", Year) }
   else{
-    ggplot()+
+    ggplot(...)+
       geom_map(data=filtered_map, aes(map_id= region), map = filtered_map) +
       geom_map(data=filtered_results, aes(map_id= region, fill=totalvotes), map = filtered_map) +
       expand_limits(x = filtered_map$long, y = filtered_map$lat) +
-      scale_fill_distiller("Voter Count (Log)", palette="YlOrRd", direction=1, trans="log") +
+      scale_fill_distiller("Voter Count (Log)", palette=pal, direction=1, trans="log") +
       coord_map("albers", lat0=30, lat1=40) +
       ggtitle("Election Count Map", Year) }
 }

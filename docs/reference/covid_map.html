@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>County Winner — county_winner • USevolve</title>
+<title>covid_map — covid_map • USevolve</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="County Winner — county_winner" />
-<meta property="og:description" content="county_winner displays a map of presidential election results by party on the county level" />
+<meta property="og:title" content="covid_map — covid_map" />
+<meta property="og:description" content="FUNCTION_DESCRIPTION" />
 
 
 
@@ -106,27 +106,27 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>County Winner</h1>
+    <h1>covid_map</h1>
     
-    <div class="hidden name"><code>county_winner.Rd</code></div>
+    <div class="hidden name"><code>covid_map.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>county_winner displays a map of presidential election results by party on the county level</p>
+    <p>FUNCTION_DESCRIPTION</p>
     </div>
 
-    <pre class="usage"><span class='fu'>county_winner</span><span class='op'>(</span>Year <span class='op'>=</span> <span class='fl'>2016</span>, states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>covid_map</span><span class='op'>(</span><span class='va'>Value</span>, Date <span class='op'>=</span> <span class='st'>"2020-12-02"</span>, pal <span class='op'>=</span> <span class='st'>"YlOrRd"</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>Year</th>
-      <td><p>United States Presidential Election year starting in 2000.</p></td>
+      <th>Value</th>
+      <td><p>DESCRIPTION.</p></td>
     </tr>
     <tr>
-      <th>states</th>
-      <td><p>region to plot.</p></td>
+      <th>Date</th>
+      <td><p>a date in form "YYYY-MM-DD".  --&gt; CHOOSE DEFAULT</p></td>
     </tr>
     </table>
 
@@ -135,15 +135,9 @@
     <p>a ggplot map object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>county_winner</span><span class='op'>(</span>Year <span class='op'>=</span> <span class='fl'>2008</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: maps</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: dplyr</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘dplyr’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:stats’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:base’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: ggplot2</span></div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/county_map.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div><div class='input'><span class='fu'>county_winner</span><span class='op'>(</span>Year <span class='op'>=</span> <span class='fl'>2000</span>, states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"texas"</span>, <span class='st'>"oklahoma"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/county_map.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>USevolve</span><span class='op'>)</span>
+<span class='fu'>covid_map</span><span class='op'>(</span>Value<span class='op'>=</span><span class='st'>"new_death"</span>, Date<span class='op'>=</span><span class='st'>"2020-07-04"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/state_map.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

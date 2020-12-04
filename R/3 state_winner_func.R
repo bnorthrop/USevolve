@@ -8,7 +8,7 @@
 #' @import dplyr ggplot2 maps
 #' @export
 #'
-#' @return a ggplot map
+#' @return a ggplot map object.
 #' @examples
 #' state_winner(Year = 1988)
 #' state_winner(Year = 2000, states=c("texas", "oklahoma"))

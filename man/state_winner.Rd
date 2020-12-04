@@ -12,7 +12,7 @@ state_winner(Year = 2016, states = c())
 \item{states}{region to plot.}
 }
 \value{
-a ggplot map
+a ggplot map object.
 }
 \description{
 state_winner displays a map of presidential election results by party on the state level

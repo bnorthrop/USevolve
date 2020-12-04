@@ -4,7 +4,14 @@
 \alias{elect_count}
 \title{Election Count}
 \usage{
-elect_count(level = "state", Year, states = c(), log = TRUE)
+elect_count(
+  level = "state",
+  Year,
+  states = c(),
+  pal = "YlOrRd",
+  log = TRUE,
+  ...
+)
 }
 \arguments{
 \item{level}{what region size to visualize (state or county).}
@@ -16,7 +23,7 @@ elect_count(level = "state", Year, states = c(), log = TRUE)
 \item{log}{fill based on log of count.}
 }
 \value{
-a ggplot map
+a ggplot map object.
 }
 \description{
 elect_count creates a map of the United States with fill color based on the specified parameter.

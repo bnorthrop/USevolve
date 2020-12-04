@@ -1,24 +1,31 @@
-#' covid_map
+#' Covid Map
 #'
 #' FUNCTION_DESCRIPTION
 #'
 #' @param Value DESCRIPTION.
-#' @param Date DESCRIPTION.
+#' @param Date a date in form "YYYY-MM-DD".  --> CHOOSE DEFAULT
 #'
 #' @import dplyr ggplot2
 #' @export
 #'
-#' @return a ggplot object. CHECK
+#' @return a ggplot map object.
 #' @examples
 #' library(USevolve)
 #' covid_map(Value="new_death", Date="2020-07-04")
 
-covid_map <- function(Value, Date="2020-12-02"){
+covid_map <- function(Value, Date="2020-12-02", pal="YlOrRd", ...){
   require(dplyr)
   require(ggplot2)
 
   Date <- as.Date(as.character(Date), format = "%Y-%m-%d")
   state_map <- read.csv("data/state_map.csv")
+
+  covid <- USevolve:::covid_update()
+  if(!missing(Date)){
+    date_filt <- covid %>% filter(date==Date)
+  }else{
+    date_filt <- covid
+  }
 
   if(missing(Value)){
     Value <- date_filt$tot_cases }
@@ -31,25 +38,18 @@ covid_map <- function(Value, Date="2020-12-02"){
   else if(Value=="new_death"){
     Value <- date_filt$new_death }
 
-  covid <- covid_update()
-  if(!missing(Date)){
-    date_filt <- covid %>% filter(date==Date)
-  }else{
-    date_filt <- covid
-  }
-
-  ggplot()+
+  ggplot(...)+
     geom_map(data=state_map, aes(map_id= region), map = state_map) +
     geom_map(data=date_filt, aes(map_id= region, fill=Value), map = state_map) +
     expand_limits(x = state_map$long, y = state_map$lat) +
-    scale_fill_distiller("Case Count", palette="YlOrRd", direction=1) +
+    scale_fill_distiller("Case Count", palette=pal, direction=1) +
     coord_map("albers", lat0=30, lat1=40) +
     ggtitle("Covid Count Map - ", Date)
 
 }
 
-covid_map()
-
-covid_map(Value="new_cases")
-covid_map(Value="new_death", Date="2020-07-04")
+# covid_map()
+#
+# covid_map(Value="new_cases")
+# covid_map(Value="new_death", Date="2020-07-04")
 

@@ -30,7 +30,7 @@ library(USevolve)
 elect_count(level="county", states = c("connecticut", "rhode island"), log=F)
 county_winner(Year = 2000, states=c("texas", "oklahoma"))
 state_winner()
-time_growth(Value="tot_death", states=c("colorado", "nevada", "florida", "california"), df_print=F)
-
+covid_growth(Value="tot_death", states=c("colorado", "nevada", "florida", "california"), df_print=F)
+covid_map(Value="new_death", Date="2020-07-04")
 
 ```

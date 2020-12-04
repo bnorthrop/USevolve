@@ -5,15 +5,15 @@
 #' @param
 #'
 #' @import dplyr plyr
-#'
-#' @return a data frame
-#' @examples
-#' library(USevolve)
-#' covid_data <- covid_update()
+#' @keywords internal
+###############################
+#
+# @return a data frame
+# @examples
+# library(USevolve)
+# covid_data <- covid_update()
 
-
-# MAKE SURE OTHER FUNCTIONS CAN USE THIS WITHOUT EXPORTING TO USER
-covid_update <- function(){
+covid_update <- function(Value){
   require(dplyr)
   require(plyr)
 
@@ -86,6 +86,7 @@ covid_update <- function(){
   df <- data.frame(matrix(vector(), 0, 7,
                           dimnames=list(c(), c("date", "region", "tot_cases",
                                                "new_case", "tot_death", "new_death", "us_total"))))
+
   for (i in 1:length(unique(covid$date))){
     filtered_data <- covid %>%
       filter(date==date[[i]]) %>%
@@ -95,32 +96,10 @@ covid_update <- function(){
 
     filtered_data <- data.frame(matrix(vector(), 0, 7))
   }
-  return(df)
+  covid <<- df
 }
 
-covid <- covid_update()
-
-
-####################
-
-library(ggplot2)
-library(maps)
-library(plotly)
-
-state_map <- read.csv("data/state_map.csv")
-
-date_filt <- covid %>% filter(date=="2020-12-02")
-
-ggplot()+
-  geom_map(data=state_map, aes(map_id= region), map = state_map) +
-  geom_map(data=date_filt, aes(map_id= region, fill=tot_cases), map = state_map) +
-  expand_limits(x = state_map$long, y = state_map$lat) +
-  scale_fill_distiller("Case Count", palette="YlOrRd", direction=1) +
-  coord_map("albers", lat0=30, lat1=40) +
-  ggtitle("Covid Count Map")
-
-# Way to improve plotly option?
-# ggplotly(map_plot)
+# covid_update()
 
 
 

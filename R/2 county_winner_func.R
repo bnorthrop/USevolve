@@ -8,11 +8,10 @@
 #' @import dplyr ggplot2 maps
 #' @export
 #'
-#' @return a ggplot map
+#' @return a ggplot map object.
 #' @examples
 #' county_winner(Year = 2008)
 #' county_winner(Year = 2000, states=c("texas", "oklahoma"))
-#'
 
 # Create Function
 county_winner <- function(Year=2016, states=c()){

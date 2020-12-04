@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>County Winner — county_winner • USevolve</title>
+<title>Covid Growth Over Time — covid_growth • USevolve</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="County Winner — county_winner" />
-<meta property="og:description" content="county_winner displays a map of presidential election results by party on the county level" />
+<meta property="og:title" content="Covid Growth Over Time — covid_growth" />
+<meta property="og:description" content="covid_growth streamlines the process for plotting longitudinal changes in
+a variable over time." />
 
 
 
@@ -106,44 +107,65 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>County Winner</h1>
+    <h1>Covid Growth Over Time</h1>
     
-    <div class="hidden name"><code>county_winner.Rd</code></div>
+    <div class="hidden name"><code>covid_growth.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>county_winner displays a map of presidential election results by party on the county level</p>
+    <p>covid_growth streamlines the process for plotting longitudinal changes in
+a variable over time.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>county_winner</span><span class='op'>(</span>Year <span class='op'>=</span> <span class='fl'>2016</span>, states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>covid_growth</span><span class='op'>(</span>states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>Value</span>, combined <span class='op'>=</span> <span class='cn'>T</span>, df_print <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>Year</th>
-      <td><p>United States Presidential Election year starting in 2000.</p></td>
+      <th>states</th>
+      <td><p>region to analyze.</p></td>
     </tr>
     <tr>
-      <th>states</th>
-      <td><p>region to plot.</p></td>
+      <th>df_print</th>
+      <td><p>print a data frame or not.</p></td>
+    </tr>
+    <tr>
+      <th>data</th>
+      <td><p>a data frame. Default is Covid data.</p></td>
+    </tr>
+    <tr>
+      <th>sum</th>
+      <td><p>take sum of all cases over states or treat states individually.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a ggplot map object.</p>
+    <p>a list (plotly object and htmlwidget) CHECK</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>county_winner</span><span class='op'>(</span>Year <span class='op'>=</span> <span class='fl'>2008</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: maps</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: dplyr</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘dplyr’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:stats’:</span>
+    <pre class="examples"><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='st'>"colorado"</span>, df_print<span class='op'>=</span><span class='cn'>F</span>, sum<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: ‘plotly’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:base’:</span>
+#&gt; <span class='message'>    last_plot</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:stats’:</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: ggplot2</span></div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/county_map.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div><div class='input'><span class='fu'>county_winner</span><span class='op'>(</span>Year <span class='op'>=</span> <span class='fl'>2000</span>, states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"texas"</span>, <span class='st'>"oklahoma"</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/county_map.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div><div class='input'>
-</div></pre>
+#&gt; <span class='message'>    filter</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:graphics’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    layout</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: plyr</span></div><div class='output co'>#&gt; <span class='message'>------------------------------------------------------------------------------</span></div><div class='output co'>#&gt; <span class='message'>You have loaded plyr after dplyr - this is likely to cause problems.</span>
+#&gt; <span class='message'>If you need functions from both plyr and dplyr, please load plyr first, then dplyr:</span>
+#&gt; <span class='message'>library(plyr); library(dplyr)</span></div><div class='output co'>#&gt; <span class='message'>------------------------------------------------------------------------------</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: ‘plyr’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:plotly’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    arrange, mutate, rename, summarise</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:dplyr’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    arrange, count, desc, failwith, id, mutate, rename, summarise,</span>
+#&gt; <span class='message'>    summarize</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:maps’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    ozone</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown parameters: sum</span></div><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span>, <span class='st'>"florida"</span>, <span class='st'>"california"</span><span class='op'>)</span>, df_print<span class='op'>=</span><span class='cn'>F</span>, sum<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown parameters: sum</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

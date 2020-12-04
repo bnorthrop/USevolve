@@ -115,7 +115,14 @@
     <p>elect_count creates a map of the United States with fill color based on the specified parameter.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>elect_count</span><span class='op'>(</span>level <span class='op'>=</span> <span class='st'>"state"</span>, <span class='va'>Year</span>, states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span>, log <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>elect_count</span><span class='op'>(</span>
+  level <span class='op'>=</span> <span class='st'>"state"</span>,
+  <span class='va'>Year</span>,
+  states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span>,
+  pal <span class='op'>=</span> <span class='st'>"YlOrRd"</span>,
+  log <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,12 +147,12 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a ggplot map</p>
+    <p>a ggplot map object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>elect_count</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/state_map.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div><div class='input'><span class='fu'>elect_count</span><span class='op'>(</span>data<span class='op'>=</span><span class='st'>"county"</span>, states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"connecticut"</span>, <span class='st'>"rhode island"</span><span class='op'>)</span>, log<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in elect_count(data = "county", states = c("connecticut", "rhode island"),     log = F): unused argument (data = "county")</span></div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'data/state_map.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in file(file, "rt"): cannot open the connection</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
