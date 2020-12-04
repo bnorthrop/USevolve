@@ -1,6 +1,6 @@
-#' Growth Over Time
+#' Covid Growth Over Time
 #'
-#' time_growth streamlines the process for plotting longitudinal changes in
+#' covid_growth streamlines the process for plotting longitudinal changes in
 #' a variable over time.
 #'
 #' @param data a data frame. Default is Covid data.
@@ -11,32 +11,26 @@
 #' @import dplyr ggplot2 maps plotly
 #' @export
 #'
-#' @return a data frame and ggplot graph
+#' @return a list (plotly object and htmlwidget) CHECK
 #' @examples
-#' time_growth(states="colorado", df_print=F)
-#' time_growth(states=c("colorado", "nevada"), sum=T)
-#' time_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F)
+#' covid_growth(states="colorado", df_print=F)
+#' covid_growth(states=c("colorado", "nevada"), sum=T)
+#' covid_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F)
 
-# EDIT SO YOU CAN CHANGE WHAT VALUE TO ANALYZE
 
-# Make function
-time_growth <- function(states=c(), Value, sum=FALSE, df_print=FALSE){
+# GET TO PROPERLY USE covid_update FUNCTION
+covid_growth <- function(states=c(), Value, sum=FALSE, df_print=FALSE){
   require(dplyr)
   require(ggplot2)
   require(plotly)
 
-  # OLD WAY OF LOADING DATA
-  covid <- read.csv("data/US Covid (to Nov8).csv")
-  covid$date <- as.Date(covid$date, format = "%Y-%m-%d")
-
   #load latest covid data
-  # covid <- covid_update()
-  # covid$date <- as.Date(covid$date, format="%m/%d/%Y")
+  covid <- covid_update()
 
   if(missing(Value)){
     Value <- "tot_cases"
   }
-    # ISSUE IN SUM SECTION --> Likely group_by
+
   if(sum==TRUE){
     if(length(states)==0){
       if(Value=="tot_cases"){
@@ -84,7 +78,7 @@ time_growth <- function(states=c(), Value, sum=FALSE, df_print=FALSE){
 
     plot <- ggplot(filtered_data) +
       geom_line(aes(x=date, y=combined_total)) +
-      ggtitle("Combined Total -", Value) + xlab("Date") + ylab("Count")
+      ggtitle("Total Covid Cases") + xlab("Date") + ylab("Count")
     ggplotly(plot)
   }
   else{
@@ -108,48 +102,52 @@ time_growth <- function(states=c(), Value, sum=FALSE, df_print=FALSE){
         group_by(region) %>%
         ggplot() +
         geom_line(aes(x=date, y=tot_cases, col=region)) +
-        ggtitle("Total Covid Cases") + xlab("Date") + ylab("Count")
+        ggtitle("Total Covid Cases by State") + xlab("Date") + ylab("Count")
       ggplotly(plot) }
     else if(Value=="new_cases"){
       plot <- filtered_data %>%
         group_by(region) %>%
         ggplot() +
         geom_line(aes(x=date, y=new_case, col=region)) +
-        ggtitle("New Covid Cases") + xlab("Date") + ylab("Count")
+        ggtitle("New Covid Cases by State") + xlab("Date") + ylab("Count")
       ggplotly(plot) }
     else if(Value=="tot_death"){
       plot <- filtered_data %>%
         group_by(region) %>%
         ggplot() +
         geom_line(aes(x=date, y=tot_death, col=region)) +
-        ggtitle("Total Covid Deaths") + xlab("Date") + ylab("Count")
+        ggtitle("Total Covid Deaths by State") + xlab("Date") + ylab("Count")
       ggplotly(plot) }
     else if(Value=="new_death"){
       plot <- filtered_data %>%
         group_by(region) %>%
         ggplot() +
         geom_line(aes(x=date, y=new_death, col=region)) +
-        ggtitle("New Covid Deaths") + xlab("Date") + ylab("Count")
+        ggtitle("New Covid Deaths by State") + xlab("Date") + ylab("Count")
       ggplotly(plot) }
-
 
   }
 }
 
 
-time_growth(df_print=F, sum=T)
-time_growth(Value="new_cases", df_print=F, sum=T)
-time_growth(Value="tot_cases", df_print=F, sum=T)
-time_growth(Value="new_death", df_print=F, sum=T)
-time_growth(Value="tot_death", df_print=F, sum=T)
-time_growth(sum=T)
+covid_growth(df_print=T, sum=T)
+covid_growth(Value="tot_cases", df_print=F, sum=T)
+covid_growth(Value="new_cases", df_print=F, sum=T)
+covid_growth(Value="new_death", df_print=F, sum=T)
+covid_growth(Value="tot_death", df_print=F, sum=T)
+covid_growth(sum=T)
 
-time_growth(states="colorado")
-time_growth(states=c("colorado", "wyoming", "virginia"), df_print=F)
+covid_growth(states="colorado")
+covid_growth(states=c("colorado", "wyoming", "virginia"), df_print=F)
 
-time_growth(states=c("colorado", "nevada"), sum=T)
-time_growth(states=c("colorado", "nevada"))
+covid_growth(states=c("colorado", "nevada"), sum=T)
+covid_growth(states=c("colorado", "nevada"))
 
-time_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F)
-time_growth(Value="new_cases", states=c("colorado", "nevada", "florida", "california"), df_print=F)
-time_growth(Value="tot_death", states=c("colorado", "nevada", "florida", "california"), df_print=F)
+covid_growth(states=c("colorado", "nevada", "florida", "california"))
+covid_growth(Value="new_cases", states=c("colorado", "nevada", "florida", "california"), df_print=F)
+covid_growth(Value="tot_death", states=c("colorado", "nevada", "florida", "california"), df_print=F)
+
+
+
+
+
