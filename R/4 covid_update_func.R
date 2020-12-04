@@ -83,23 +83,27 @@ covid_update <- function(Value){
   covid$date <- as.Date(covid$date, format="%m/%d/%Y")
 
   # Find total US cases from state sums
-  df <- data.frame(matrix(vector(), 0, 7,
+  df <- data.frame(matrix(vector(), 0, 10,
                           dimnames=list(c(), c("date", "region", "tot_cases",
-                                               "new_case", "tot_death", "new_death", "us_total"))))
+                                               "new_cases", "tot_death", "new_death", "us_tot_cases",
+                                               "us_new_cases", "us_tot_death", "us_new_death"))))
 
   for (i in 1:length(unique(covid$date))){
     filtered_data <- covid %>%
       filter(date==date[[i]]) %>%
-      mutate(us_total = sum(tot_cases))
+      mutate(us_tot_cases = sum(tot_cases),
+             us_new_cases = sum(new_case),
+             us_tot_death = sum(tot_death),
+             us_new_death = sum(new_death))
 
     df <- rbind(df, filtered_data)
 
-    filtered_data <- data.frame(matrix(vector(), 0, 7))
+    filtered_data <- data.frame(matrix(vector(), 0, 10))
   }
   covid <<- df
 }
 
-# covid_update()
+covid_update()
 
 
 
