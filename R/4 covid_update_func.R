@@ -19,7 +19,13 @@ covid_update <- function(Value){
 
   covid <- read.csv("https://data.cdc.gov/api/views/9mfq-cb36/rows.csv?accessType=DOWNLOAD")
 
+  # covid <- read.csv("/Users/blakenorthrop/Desktop/QAC356/USevolve/data/US Covid (to Nov8).csv")
+  # covid$date <- as.Date(covid$date, format="%Y-%m-%d")
+  # covid <- covid %>% select(-c(X.4, X.3, X.2, X.1, X))
+
   names(covid)[names(covid) == "submission_date"] <- "date"
+  covid$date <- as.Date(covid$date, format="%m/%d/%Y")
+
   names(covid)[names(covid) == "state"] <- "region"
 
   covid$region <- revalue(covid$region, c("AL" = "alabama",
@@ -80,8 +86,6 @@ covid_update <- function(Value){
                                conf_death, prob_death, pnew_death,
                                created_at, consent_cases, consent_deaths))
 
-  covid$date <- as.Date(covid$date, format="%m/%d/%Y")
-
   # Find total US cases from state sums
   df <- data.frame(matrix(vector(), 0, 10,
                           dimnames=list(c(), c("date", "region", "tot_cases",
@@ -100,10 +104,10 @@ covid_update <- function(Value){
 
     filtered_data <- data.frame(matrix(vector(), 0, 10))
   }
-  covid <<- df
+  covid <- df
 }
 
-covid_update()
+covid <- covid_update()
 
 
 
