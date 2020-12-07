@@ -13,7 +13,7 @@
 # library(USevolve)
 # covid_data <- covid_update()
 
-covid_update <- function(Value){
+covid_update <- function(){
   require(dplyr)
   require(plyr)
 
@@ -107,8 +107,8 @@ covid_update <- function(Value){
   covid <- df
 }
 
-covid <- covid_update()
-
-
+# covid <- covid_update()
+#
+# covid_update()
 
 

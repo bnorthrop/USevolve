@@ -117,7 +117,7 @@ a variable over time." />
 a variable over time.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>covid_growth</span><span class='op'>(</span>states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>Value</span>, combined <span class='op'>=</span> <span class='cn'>T</span>, df_print <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>covid_growth</span><span class='op'>(</span>states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>value</span>, sum <span class='op'>=</span> <span class='cn'>FALSE</span>, df_print <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -127,16 +127,16 @@ a variable over time.</p>
       <td><p>region to analyze.</p></td>
     </tr>
     <tr>
+      <th>sum</th>
+      <td><p>take sum of all cases over states or treat states individually.</p></td>
+    </tr>
+    <tr>
       <th>df_print</th>
       <td><p>print a data frame or not.</p></td>
     </tr>
     <tr>
       <th>data</th>
       <td><p>a data frame. Default is Covid data.</p></td>
-    </tr>
-    <tr>
-      <th>sum</th>
-      <td><p>take sum of all cases over states or treat states individually.</p></td>
     </tr>
     </table>
 
@@ -163,9 +163,9 @@ a variable over time.</p>
 #&gt; <span class='message'>    arrange, count, desc, failwith, id, mutate, rename, summarise,</span>
 #&gt; <span class='message'>    summarize</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:maps’:</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    ozone</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown parameters: sum</span></div><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span><span class='op'>)</span><span class='op'>)</span>
+#&gt; <span class='message'>    ozone</span></div><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span>, <span class='st'>"florida"</span>, <span class='st'>"california"</span><span class='op'>)</span>, df_print<span class='op'>=</span><span class='cn'>F</span>, sum<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='warning'>Warning: Ignoring unknown parameters: sum</span></div></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

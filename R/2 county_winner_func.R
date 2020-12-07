@@ -5,7 +5,7 @@
 #' @param Year United States Presidential Election year starting in 2000.
 #' @param states region to plot.
 #'
-#' @import dplyr ggplot2 maps
+#' @import dplyr ggplot2 maps devtools
 #' @export
 #'
 #' @return a ggplot map object.
@@ -18,28 +18,28 @@ county_winner <- function(Year=2016, states=c()){
   require(maps)
   require(dplyr)
   require(ggplot2)
-
-  #load data from data folder
-  county_map <- read.csv("data/county_map.csv")
-  countypres <- read.csv("data/2 county president.csv")
+  require(devtools)
+  # load data
+  county_map <- USevolve:::county_map
+  county_pres <- USevolve:::county_pres
 
   county_election_years <- c(2000, 2004, 2008, 2012, 2016)
   if(Year %in% county_election_years){
 
-    countypres <- na.omit(countypres)
-    countypres$party[countypres$party != "democrat" & countypres$party != "republican"] <- "other"
+    county_pres <- na.omit(county_pres)
+    county_pres$party[county_pres$party != "democrat" & county_pres$party != "republican"] <- "other"
     partycolor <- c("blue2", "red1", "yellow")
-    names(partycolor) <- unique(countypres$party)
+    names(partycolor) <- unique(county_pres$party)
     ###########
     if(length(states)==0){
-      county_majority <- countypres %>%
+      county_majority <- county_pres %>%
         filter(year==Year) %>%
         group_by(region) %>%
-        slice_max(county_percent)
+        slice_max(county_percent)     ## ISSUE IN SLICE_MAX
     } else{
       county_map <- county_map %>%
         filter(state %in% states)
-      county_majority <- countypres %>%
+      county_majority <- county_pres %>%
         filter(state %in% states, year==Year) %>%
         group_by(region) %>%
         slice_max(county_percent)
@@ -61,12 +61,15 @@ county_winner <- function(Year=2016, states=c()){
   }
 }
 
+# FIX DATA READING ERROR
+#### Error in file(file, "rt") : cannot open the connection
+
 # county_winner()
 #
 # county_winner(Year = 2008)
 # county_winner(Year = 1996)
 #
-county_winner(Year = 2000, states=c("texas", "oklahoma"))
+# county_winner(Year = 2000, states=c("texas", "oklahoma"))
 
 
 

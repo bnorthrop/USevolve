@@ -18,6 +18,5 @@ a ggplot map object.
 FUNCTION_DESCRIPTION
 }
 \examples{
-library(USevolve)
-covid_map(Value="new_death", Date="2020-07-04")
+covid_map(Value="new_death", Date="2020-12-01")
 }

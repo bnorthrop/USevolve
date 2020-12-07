@@ -23,7 +23,7 @@ covid_growth streamlines the process for plotting longitudinal changes in
 a variable over time.
 }
 \examples{
-covid_growth(states="colorado", df_print=F, sum=F)
+covid_growth(states="colorado", df_print=FALSE, sum=FALSE)
 covid_growth(states=c("colorado", "nevada"))
-covid_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F, sum=F)
+covid_growth(states=c("colorado", "nevada", "florida", "california"), df_print=FALSE, sum=FALSE)
 }

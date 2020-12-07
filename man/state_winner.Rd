@@ -19,5 +19,5 @@ state_winner displays a map of presidential election results by party on the sta
 }
 \examples{
 state_winner(Year = 1988)
-state_winner(Year = 2000, states=c("texas", "oklahoma"))
+state_winner(states=c("california", "nevada", "arizona", "utah"))
 }

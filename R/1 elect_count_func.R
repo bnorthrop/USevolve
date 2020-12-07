@@ -13,7 +13,7 @@
 #' @return a ggplot map object.
 #' @examples
 #' elect_count()
-#' elect_count(data="county", states = c("connecticut", "rhode island"), log=F)
+#' elect_count(level="county", states = c("connecticut", "rhode island"), log=FALSE)
 #'
 
 # Create restrictions on year based on what data set user calls
@@ -26,11 +26,10 @@ elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE,
   require(ggplot2)
   require(maps)
   # Load map data
-  state_map <- read.csv("data/state_map.csv")
-  county_map <- read.csv("data/county_map.csv")
-  # Load data used to fill map
-  statepres <- read.csv("data/3 state president.csv")
-  countypres <- read.csv("data/2 county president.csv")
+  county_map <- USevolve:::county_map
+  county_pres <- USevolve:::county_pres
+  state_map <- USevolve:::state_map
+  state_pres <- USevolve:::state_pres
 
   if (level=="state" & missing(Year)){
     Year=2016 }
@@ -44,14 +43,14 @@ elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE,
       if (length(states)==0){
         filtered_map <- county_map
 
-        filtered_results <- countypres %>%
+        filtered_results <- county_pres %>%
           filter(year==Year) %>%
           group_by(region) }
       else {
         filtered_map <- county_map %>%
           filter(state %in% states)
 
-        filtered_results <- countypres %>%
+        filtered_results <- county_pres %>%
           filter(state %in% states, year==Year) %>%
           group_by(region) }
     }
@@ -59,14 +58,14 @@ elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE,
       if (length(states)==0){
         filtered_map <- state_map
 
-        filtered_results <- statepres %>%
+        filtered_results <- state_pres %>%
           filter(year==Year) %>%
           group_by(region)
       } else{
         filtered_map <- state_map %>%
           filter(state %in% states)
 
-        filtered_results <- statepres %>%
+        filtered_results <- state_pres %>%
           filter(state %in% states, year==Year) %>%
           group_by(region) }
     }

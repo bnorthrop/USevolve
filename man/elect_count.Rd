@@ -30,6 +30,6 @@ elect_count creates a map of the United States with fill color based on the spec
 }
 \examples{
 elect_count()
-elect_count(data="county", states = c("connecticut", "rhode island"), log=F)
+elect_count(level="county", states = c("connecticut", "rhode island"), log=FALSE)
 
 }

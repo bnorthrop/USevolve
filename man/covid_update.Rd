@@ -4,7 +4,7 @@
 \alias{covid_update}
 \title{covid_update}
 \usage{
-covid_update(Value)
+covid_update()
 }
 \description{
 covid_update downloads and cleans the latest COVID-19 data from the CDC website.

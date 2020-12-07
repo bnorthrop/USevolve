@@ -11,7 +11,7 @@
 #' @return a ggplot map object.
 #' @examples
 #' state_winner(Year = 1988)
-#' state_winner(Year = 2000, states=c("texas", "oklahoma"))
+#' state_winner(states=c("california", "nevada", "arizona", "utah"))
 
 # Create function
 state_winner <- function(Year=2016, states=c()){
@@ -19,26 +19,29 @@ state_winner <- function(Year=2016, states=c()){
   require(ggplot2)
   require(maps)
 
+  state_map <- USevolve:::state_map
+  state_pres <- USevolve:::state_pres
+
   #load data from data folder
-  state_map <- read.csv("data/state_map.csv")
-  statepres <- read.csv("data/3 state president.csv")
+  # state_map <- read.csv("data/state_map.csv")
+  # statepres <- read.csv("data/state_pres.csv")
 
   state_election_years <- c(1976, 1980, 1984, 1988, 1992, 1996, 2000, 2004, 2008, 2012, 2016)
   if(Year %in% state_election_years){
 
-    statepres$party[statepres$party != "democrat" & statepres$party != "republican"] <- "other"
+    state_pres$party[state_pres$party != "democrat" & state_pres$party != "republican"] <- "other"
     partycolor <- c("blue2", "red1", "yellow")
-    names(partycolor) <- unique(statepres$party)
+    names(partycolor) <- unique(state_pres$party)
     ############
     if(length(states)==0){
-      state_majority <- statepres %>%
+      state_majority <- state_pres %>%
         filter(year==Year) %>%
         group_by(region) %>%
         slice_max(state_percent)
     } else{
       state_map <- state_map %>%
         filter(region %in% states)
-      state_majority <- statepres %>%
+      state_majority <- state_pres %>%
         filter(region %in% states, year==Year) %>%
         group_by(region) %>%
         slice_max(state_percent)
@@ -60,7 +63,7 @@ state_winner <- function(Year=2016, states=c()){
   }
 }
 
-state_winner()
+# state_winner()
 #
 # state_winner(Year = 1988)
 # state_winner(Year = 1990)

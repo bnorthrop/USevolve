@@ -10,15 +10,15 @@
 #'
 #' @return a ggplot map object.
 #' @examples
-#' library(USevolve)
-#' covid_map(Value="new_death", Date="2020-07-04")
+#' covid_map(Value="new_death", Date="2020-12-01")
 
 covid_map <- function(Value, Date="2020-12-02", pal="YlOrRd", ...){
   require(dplyr)
   require(ggplot2)
 
   Date <- as.Date(as.character(Date), format = "%Y-%m-%d")
-  state_map <- read.csv("data/state_map.csv")
+  # state_map <- read.csv("data/state_map.csv")
+  state_map <- USevolve:::state_map
 
   covid <- USevolve:::covid_update()
   if(!missing(Date)){

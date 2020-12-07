@@ -17,4 +17,6 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-Imports: dplyr, ggplot2, maps, usethis, tools, plyr, plotly
+Imports: plyr, dplyr, ggplot2, maps, usethis, tools, plotly, devtools
+Depends: 
+    R (>= 2.10)

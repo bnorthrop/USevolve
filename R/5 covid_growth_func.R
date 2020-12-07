@@ -8,21 +8,22 @@
 #' @param sum take sum of all cases over states or treat states individually.
 #' @param df_print print a data frame or not.
 #'
-#' @import dplyr ggplot2 maps plotly
+#' @import plyr dplyr ggplot2 maps plotly
 #' @export
 #'
 #' @return a list (plotly object and htmlwidget) CHECK
 #' @examples
-#' covid_growth(states="colorado", df_print=F, sum=F)
+#' covid_growth(states="colorado", df_print=FALSE, sum=FALSE)
 #' covid_growth(states=c("colorado", "nevada"))
-#' covid_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F, sum=F)
+#' covid_growth(states=c("colorado", "nevada", "florida", "california"), df_print=FALSE, sum=FALSE)
 
 covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, ...) {
+  require(plyr)
   require(dplyr)
   require(ggplot2)
   require(plotly)
   #load latest covid data
-  covid <- USevolve:::covid_update()
+  covid <<- USevolve:::covid_update()
 
   if(missing(value)){
     value <- "tot_cases" }
@@ -150,30 +151,30 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, ...) {
 
 # DO WE WANT TO MAKE IT WORK FOR MULTIPLE VALUES IN ONE PLOT??
 
-covid_growth(states=c("california", "virginia", "new york", "arizona"), sum=T)
-
-covid_growth(sum=T)
-covid_growth(states=c("colorado", "nevada", "florida", "california"), sum=F)
-
-covid_growth(value="tot_cases", df_print=F)
-
-covid_growth(df_print=T, sum=T)
-covid_growth(value="tot_cases", df_print=F, sum=T)
-covid_growth(value="new_cases", df_print=F, sum=T)
-covid_growth(value="new_death", df_print=F, sum=T)
-covid_growth(value="tot_death", df_print=F, sum=T)
-covid_growth(sum=T)
-
-covid_growth(states="colorado")
-covid_growth(states=c("colorado", "wyoming", "virginia"), df_print=F)
-
-covid_growth(states=c("colorado", "nevada"), sum=T)
-covid_growth(states=c("colorado", "nevada"))
-covid_growth(states=c("colorado", "nevada", "florida", "california"), sum=T)
-covid_growth(value="new_cases", states=c("colorado", "nevada", "florida", "california"))
-
-covid_growth(value="new_cases", states=c("colorado", "nevada", "florida", "california"), sum=F)
-covid_growth(value="tot_death", states=c("colorado", "nevada", "florida", "california"), sum=F)
+# covid_growth(states=c("california", "virginia", "new york", "arizona"), sum=T)
+#
+# covid_growth(sum=T)
+# covid_growth(states=c("colorado", "nevada", "florida", "california"), sum=F)
+#
+# covid_growth(value="tot_cases", df_print=F)
+#
+# covid_growth(df_print=T, sum=T)
+# covid_growth(value="tot_cases", df_print=F, sum=T)
+# covid_growth(value="new_cases", df_print=F, sum=T)
+# covid_growth(value="new_death", df_print=F, sum=T)
+# covid_growth(value="tot_death", df_print=F, sum=T)
+# covid_growth(sum=T)
+#
+# covid_growth(states="colorado")
+# covid_growth(states=c("colorado", "wyoming", "virginia"), df_print=F)
+#
+# covid_growth(states=c("colorado", "nevada"), sum=T)
+# covid_growth(states=c("colorado", "nevada"))
+# covid_growth(states=c("colorado", "nevada", "florida", "california"), sum=T)
+# covid_growth(value="new_cases", states=c("colorado", "nevada", "florida", "california"))
+#
+# covid_growth(value="new_cases", states=c("colorado", "nevada", "florida", "california"), sum=F)
+# covid_growth(value="tot_death", states=c("colorado", "nevada", "florida", "california"), sum=F)
 
 
 
