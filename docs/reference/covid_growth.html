@@ -127,6 +127,10 @@ a variable over time.</p>
       <td><p>region to analyze.</p></td>
     </tr>
     <tr>
+      <th>value</th>
+      <td><p>covid statistic to analyze.</p></td>
+    </tr>
+    <tr>
       <th>sum</th>
       <td><p>take sum of all cases over states or treat states individually.</p></td>
     </tr>
@@ -135,8 +139,8 @@ a variable over time.</p>
       <td><p>print a data frame or not.</p></td>
     </tr>
     <tr>
-      <th>data</th>
-      <td><p>a data frame. Default is Covid data.</p></td>
+      <th>...</th>
+      <td><p>pass other arguments</p></td>
     </tr>
     </table>
 
@@ -145,26 +149,26 @@ a variable over time.</p>
     <p>a list (plotly object and htmlwidget) CHECK</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='st'>"colorado"</span>, df_print<span class='op'>=</span><span class='cn'>F</span>, sum<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘plotly’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
+    <pre class="examples"><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='st'>"colorado"</span>, df_print<span class='op'>=</span><span class='cn'>FALSE</span>, sum<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: plyr</span></div><div class='output co'>#&gt; <span class='message'>------------------------------------------------------------------------------</span></div><div class='output co'>#&gt; <span class='message'>You have loaded plyr after dplyr - this is likely to cause problems.</span>
+#&gt; <span class='message'>If you need functions from both plyr and dplyr, please load plyr first, then dplyr:</span>
+#&gt; <span class='message'>library(plyr); library(dplyr)</span></div><div class='output co'>#&gt; <span class='message'>------------------------------------------------------------------------------</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: ‘plyr’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:dplyr’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    arrange, count, desc, failwith, id, mutate, rename, summarise,</span>
+#&gt; <span class='message'>    summarize</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:maps’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    ozone</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: plotly</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: ‘plotly’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:plyr’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    arrange, mutate, rename, summarise</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:ggplot2’:</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    last_plot</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:stats’:</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    filter</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:graphics’:</span>
 #&gt; <span class='message'></span>
-#&gt; <span class='message'>    layout</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: plyr</span></div><div class='output co'>#&gt; <span class='message'>------------------------------------------------------------------------------</span></div><div class='output co'>#&gt; <span class='message'>You have loaded plyr after dplyr - this is likely to cause problems.</span>
-#&gt; <span class='message'>If you need functions from both plyr and dplyr, please load plyr first, then dplyr:</span>
-#&gt; <span class='message'>library(plyr); library(dplyr)</span></div><div class='output co'>#&gt; <span class='message'>------------------------------------------------------------------------------</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘plyr’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:plotly’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    arrange, mutate, rename, summarise</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:dplyr’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    arrange, count, desc, failwith, id, mutate, rename, summarise,</span>
-#&gt; <span class='message'>    summarize</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:maps’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    ozone</span></div><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span>, <span class='st'>"florida"</span>, <span class='st'>"california"</span><span class='op'>)</span>, df_print<span class='op'>=</span><span class='cn'>F</span>, sum<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
+#&gt; <span class='message'>    layout</span></div><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span>, <span class='st'>"florida"</span>, <span class='st'>"california"</span><span class='op'>)</span>, df_print<span class='op'>=</span><span class='cn'>FALSE</span>, sum<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
