@@ -28,3 +28,4 @@ percent_change <- function(data=covid, state=c()){
 # percent_change(state=c("colorado", "nevada"))
 #
 # percent_change(state=c("colorado", "nevada", "florida", "california"))
+#test test test
