@@ -25,10 +25,10 @@ elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE,
   require(ggplot2)
   require(maps)
   # Load map data
-  county_map <- county_map
-  county_pres <- county_pres
-  state_map <- state_map
-  state_pres <- state_pres
+  county_map <- USevolve:::county_map
+  county_pres <- USevolve:::county_pres
+  state_map <- USevolve:::state_map
+  state_pres <- USevolve:::state_pres
 
   if (level=="state" & missing(Year)){
     Year=2016 }

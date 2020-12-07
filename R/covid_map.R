@@ -20,7 +20,7 @@ covid_map <- function(value, Date="2020-12-02", pal="YlOrRd", ...){
 
   Date <- as.Date(as.character(Date), format = "%Y-%m-%d")
   # state_map <- read.csv("data/state_map.csv")
-  state_map <- state_map
+  state_map <- USevolve:::state_map
 
   covid <- covid_update()
   if(!missing(Date)){

@@ -19,8 +19,8 @@ state_winner <- function(Year=2016, states=c()){
   require(ggplot2)
   require(maps)
 
-  state_map <- state_map
-  state_pres <- state_pres
+  state_map <- USevolve:::state_map
+  state_pres <- USevolve:::state_pres
 
   state_election_years <- c(1976, 1980, 1984, 1988, 1992, 1996, 2000, 2004, 2008, 2012, 2016)
   if(Year %in% state_election_years){

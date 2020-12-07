@@ -20,8 +20,8 @@ county_winner <- function(Year=2016, states=c()){
   require(ggplot2)
   require(devtools)
   # load data
-  county_map <- county_map
-  county_pres <- county_pres
+  county_map <- USevolve:::county_map
+  county_pres <- USevolve:::county_pres
 
   county_election_years <- c(2000, 2004, 2008, 2012, 2016)
   if(Year %in% county_election_years){

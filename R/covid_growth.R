@@ -149,9 +149,6 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, ...) {
   }
 }
 
-
-# DO WE WANT TO MAKE IT WORK FOR MULTIPLE VALUES IN ONE PLOT??
-
 # covid_growth(states=c("california", "virginia", "new york", "arizona"), sum=T)
 #
 # covid_growth(sum=T)
