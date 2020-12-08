@@ -8,6 +8,8 @@ For millions of people around the world, 2020 has been one of the most difficult
 
 ![2020 Presidential Election](election20.png)
 
+---
+
 ## Download & Install Instructions
 
 To download this package use the following code.
@@ -20,8 +22,6 @@ devtools::install_github("bnorthrop/USevolve", build_vignettes = TRUE)
 ```
 
 The source code is available [here](https://github.com/bnorthrop/USevolve).
-
----
 
 
 
