@@ -1,12 +1,15 @@
 #' State Winner
 #'
-#' state_winner displays a map of presidential election results by party on the state level
+#' state_winner displays a chloropleth map of United States presidential election
+#' results by party on the state level for a given year.
 #'
 #' @param Year United States Presidential Election year starting in 1976.
 #' @param states region to plot.
 #'
 #' @import dplyr ggplot2 maps
 #' @export
+#'
+#' @seealso county_winner
 #'
 #' @return a ggplot map object.
 #' @examples
@@ -49,7 +52,7 @@ state_winner <- function(Year=2016, states=c()){
       expand_limits(x = state_map$long, y = state_map$lat) +
       scale_fill_manual(name = "party", values = partycolor) +
       coord_map("albers", lat0=30, lat1=40) +
-      ggtitle("State Winner Map", Year)
+      ggtitle("State Winner Map", Year) + xlab("Longitude") + ylab("Latitude")
   }
   else if(Year == 2020){
     stop("Data not yet available")

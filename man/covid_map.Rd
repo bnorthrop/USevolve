@@ -19,7 +19,10 @@ covid_map(value, Date = "2020-12-02", pal = "YlOrRd", ...)
 a ggplot map object.
 }
 \description{
-FUNCTION_DESCRIPTION
+covid_map automatically loads the latest COVID-19 data from the CDC and plots a chloropleth
+map of the United States based on the fill value the user specifies. Fill options include
+total cases ("tot_cases"), new cases ("new_cases"), total deaths ("tot_death"), and
+new deaths ("new_death").
 }
 \examples{
 covid_map(Value="new_death", Date="2020-12-01")

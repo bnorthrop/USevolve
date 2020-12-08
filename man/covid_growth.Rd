@@ -4,7 +4,14 @@
 \alias{covid_growth}
 \title{Covid Growth Over Time}
 \usage{
-covid_growth(states = c(), value, sum = FALSE, df_print = FALSE, ...)
+covid_growth(
+  states = c(),
+  value,
+  sum = FALSE,
+  df_print = FALSE,
+  interact = TRUE,
+  ...
+)
 }
 \arguments{
 \item{states}{region to analyze.}
@@ -15,17 +22,25 @@ covid_growth(states = c(), value, sum = FALSE, df_print = FALSE, ...)
 
 \item{df_print}{print a data frame or not.}
 
+\item{interact}{whether additional information will display when user hovers over image (use ggplot or plotly)}
+
 \item{...}{pass other arguments}
 }
 \value{
-a list (plotly object and htmlwidget) CHECK
+a plotly or ggplot object.
 }
 \description{
-covid_growth streamlines the process for plotting longitudinal changes in
-a variable over time.
+covid_growth streamlines the process for plotting a line graph to analyze
+longitudinal changes in a user-selected variable over time. Variable options include
+total cases ("tot_cases"), new cases ("new_cases"), total deaths ("tot_death"), and
+new deaths ("new_death").
 }
 \examples{
 covid_growth(states="colorado", df_print=FALSE, sum=FALSE)
 covid_growth(states=c("colorado", "nevada"))
 covid_growth(states=c("colorado", "nevada", "florida", "california"), df_print=FALSE, sum=FALSE)
+covid_growth(states=c("colorado", "nevada", "florida", "california"), interact=FALSE)
+}
+\seealso{
+ggplot
 }

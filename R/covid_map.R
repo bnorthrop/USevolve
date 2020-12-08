@@ -1,6 +1,9 @@
 #' Covid Map
 #'
-#' FUNCTION_DESCRIPTION
+#' covid_map automatically loads the latest COVID-19 data from the CDC and plots a chloropleth
+#' map of the United States based on the fill value the user specifies. Fill options include
+#' total cases ("tot_cases"), new cases ("new_cases"), total deaths ("tot_death"), and
+#' new deaths ("new_death").
 #'
 #' @param value covid statistic to analyze.
 #' @param Date a date in form "YYYY-MM-DD".  --> CHOOSE DEFAULT
@@ -46,7 +49,7 @@ covid_map <- function(value, Date="2020-12-02", pal="YlOrRd", ...){
     expand_limits(x = state_map$long, y = state_map$lat) +
     scale_fill_distiller("Case Count", palette=pal, direction=1) +
     coord_map("albers", lat0=30, lat1=40) +
-    ggtitle("Covid Count Map - ", Date)
+    ggtitle("Covid Count Map - ", Date) + xlab("Longitude") + ylab("Latitude")
 
 }
 

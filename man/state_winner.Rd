@@ -15,9 +15,13 @@ state_winner(Year = 2016, states = c())
 a ggplot map object.
 }
 \description{
-state_winner displays a map of presidential election results by party on the state level
+state_winner displays a chloropleth map of United States presidential election
+results by party on the state level for a given year.
 }
 \examples{
 state_winner(Year = 1988)
 state_winner(states=c("california", "nevada", "arizona", "utah"))
+}
+\seealso{
+county_winner
 }

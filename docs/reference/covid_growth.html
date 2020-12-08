@@ -40,8 +40,10 @@
 
 
 <meta property="og:title" content="Covid Growth Over Time — covid_growth" />
-<meta property="og:description" content="covid_growth streamlines the process for plotting longitudinal changes in
-a variable over time." />
+<meta property="og:description" content="covid_growth streamlines the process for plotting a line graph to analyze
+longitudinal changes in a user-selected variable over time. Variable options include
+total cases (&quot;tot_cases&quot;), new cases (&quot;new_cases&quot;), total deaths (&quot;tot_death&quot;), and
+new deaths (&quot;new_death&quot;)." />
 
 
 
@@ -113,11 +115,20 @@ a variable over time." />
     </div>
 
     <div class="ref-description">
-    <p>covid_growth streamlines the process for plotting longitudinal changes in
-a variable over time.</p>
+    <p>covid_growth streamlines the process for plotting a line graph to analyze
+longitudinal changes in a user-selected variable over time. Variable options include
+total cases ("tot_cases"), new cases ("new_cases"), total deaths ("tot_death"), and
+new deaths ("new_death").</p>
     </div>
 
-    <pre class="usage"><span class='fu'>covid_growth</span><span class='op'>(</span>states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>value</span>, sum <span class='op'>=</span> <span class='cn'>FALSE</span>, df_print <span class='op'>=</span> <span class='cn'>FALSE</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>covid_growth</span><span class='op'>(</span>
+  states <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='va'>value</span>,
+  sum <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  df_print <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  interact <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -139,6 +150,10 @@ a variable over time.</p>
       <td><p>print a data frame or not.</p></td>
     </tr>
     <tr>
+      <th>interact</th>
+      <td><p>whether additional information will display when user hovers over image (use ggplot or plotly)</p></td>
+    </tr>
+    <tr>
       <th>...</th>
       <td><p>pass other arguments</p></td>
     </tr>
@@ -146,7 +161,10 @@ a variable over time.</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a list (plotly object and htmlwidget) CHECK</p>
+    <p>a plotly or ggplot object.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>ggplot</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='st'>"colorado"</span>, df_print<span class='op'>=</span><span class='cn'>FALSE</span>, sum<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
@@ -169,7 +187,8 @@ a variable over time.</p>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    layout</span></div><div class='input'><span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span>, <span class='st'>"florida"</span>, <span class='st'>"california"</span><span class='op'>)</span>, df_print<span class='op'>=</span><span class='cn'>FALSE</span>, sum<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
-</div></pre>
+<span class='fu'>covid_growth</span><span class='op'>(</span>states<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"colorado"</span>, <span class='st'>"nevada"</span>, <span class='st'>"florida"</span>, <span class='st'>"california"</span><span class='op'>)</span>, interact<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='img'><img src='covid_growth-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
