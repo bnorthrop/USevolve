@@ -4,7 +4,7 @@
 \alias{county_winner}
 \title{County Winner}
 \usage{
-county_winner(Year = 2016, states = c())
+county_winner(Year = 2016, states = c(), label = "candidate")
 }
 \arguments{
 \item{Year}{United States Presidential Election year starting in 2000.}

@@ -17,6 +17,7 @@ covid_update <- function(){
   names(covid)[names(covid) == "state"] <- "region"
 
   covid$region <- revalue(covid$region, c("AL" = "alabama",
+                                          "AK" = "alaska",
                                           "AZ" = "arizona",
                                           "AR"="arkansas",
                                           "CA"="california",
@@ -25,6 +26,7 @@ covid_update <- function(){
                                           "DE"="delaware",
                                           "FL"="florida",
                                           "GA"="georgia",
+                                          "HI"="hawaii",
                                           "ID"="idaho",
                                           "IL"="illinois",
                                           "IN"="indiana",
@@ -68,7 +70,7 @@ covid_update <- function(){
   `%notin%` <- Negate(`%in%`)
 
   covid <- subset(covid, region %notin% c("RMI", "AS", "NYC", "PR", "DC",
-                                          "HI", "AK", "GU", "VI", "MP", "FSM", "PW"))
+                                          "GU", "VI", "MP", "FSM", "PW"))
 
   covid <- covid %>% select(-c(conf_cases, prob_cases, pnew_case,
                                conf_death, prob_death, pnew_death,

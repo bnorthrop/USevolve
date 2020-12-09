@@ -4,7 +4,7 @@
 \alias{state_winner}
 \title{State Winner}
 \usage{
-state_winner(Year = 2016, states = c())
+state_winner(Year = 2016, states = c(), label = "candidate")
 }
 \arguments{
 \item{Year}{United States Presidential Election year starting in 1976.}
