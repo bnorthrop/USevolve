@@ -4,12 +4,6 @@
 #'
 #' @import dplyr plyr
 #' @keywords internal
-###############################
-#
-# @return a data frame
-# @examples
-# library(USevolve)
-# covid_data <- covid_update()
 
 covid_update <- function(){
   require(dplyr)

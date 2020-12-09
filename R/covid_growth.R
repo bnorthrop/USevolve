@@ -15,7 +15,7 @@
 #' @import plyr dplyr ggplot2 maps plotly
 #' @export
 #'
-#' @seealso ggplot
+#' @seealso [ggplot2::ggplot()]
 #'
 #' @return a plotly or ggplot object.
 #' @examples
@@ -34,9 +34,6 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, interact=
 
   if(missing(value)){
     value <- "tot_cases" }
-  # else if(class(value) != "character"){
-  #   value <- as.character(value)
-  # }
   `%notin%` <- Negate(`%in%`)
   if(value %notin% c("tot_cases", "new_cases", "tot_death", "new_death")){
     stop("Please print valid value (statistic) to measure")
@@ -78,7 +75,6 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, interact=
     else {
       filtered_data <- covid %>%
         filter(region %in% states)
-      # group_by(date)
 
       # Find state sums
       df <- data.frame(matrix(vector(), 0, 14,

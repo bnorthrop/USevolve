@@ -9,7 +9,7 @@
 #' @import dplyr ggplot2 maps devtools
 #' @export
 #'
-#' @seealso state_winner
+#' @seealso [USevolve::state_winner()]
 #'
 #' @return a ggplot map object.
 #' @examples
@@ -63,9 +63,6 @@ county_winner <- function(Year=2016, states=c()){
     stop("Must enter valid election year starting in 2000")
   }
 }
-
-# FIX DATA READING ERROR
-#### Error in file(file, "rt") : cannot open the connection
 
 # county_winner()
 #

@@ -1,4 +1,4 @@
-#' Election Count
+#' Election Count (Voter Turnout)
 #'
 #' elect_count creates a chloropleth map of the United States on the
 #' state or county levelwith fill color based on voter turnout for the
@@ -19,8 +19,6 @@
 #' elect_count()
 #' elect_count(level="county", states = c("connecticut", "rhode island"), log=FALSE)
 #'
-
-# Note: Does not work with longitudinal data (e.g. Covid changes over months)
 
 elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE, ...){
   require(dplyr)

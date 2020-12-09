@@ -9,7 +9,7 @@
 #' @import dplyr ggplot2 maps
 #' @export
 #'
-#' @seealso county_winner
+#' @seealso [USevolve::county_winner()]
 #'
 #' @return a ggplot map object.
 #' @examples

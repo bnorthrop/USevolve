@@ -23,5 +23,5 @@ county_winner(Year = 2008)
 county_winner(Year = 2000, states=c("texas", "oklahoma"))
 }
 \seealso{
-state_winner
+\code{\link[=state_winner]{state_winner()}}
 }

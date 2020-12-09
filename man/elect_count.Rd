@@ -2,7 +2,7 @@
 % Please edit documentation in R/elect_count.R
 \name{elect_count}
 \alias{elect_count}
-\title{Election Count}
+\title{Election Count (Voter Turnout)}
 \usage{
 elect_count(
   level = "state",

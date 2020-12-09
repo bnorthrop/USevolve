@@ -42,5 +42,5 @@ covid_growth(states=c("colorado", "nevada", "florida", "california"), df_print=F
 covid_growth(states=c("colorado", "nevada", "florida", "california"), interact=FALSE)
 }
 \seealso{
-ggplot
+\code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}
 }
