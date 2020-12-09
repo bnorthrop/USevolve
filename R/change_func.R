@@ -17,6 +17,7 @@ percent_change <- function(data=covid, state=c()){
   filtered_data <- data %>%
     filter(region %in% state) %>%
     group_by(new_case, date)
+
    # mutate(change = new_case[date] - new_case[date-1])
 
   # return(filtered_data$change)

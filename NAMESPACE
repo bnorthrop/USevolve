@@ -3,6 +3,7 @@
 export(county_winner)
 export(covid_growth)
 export(covid_map)
+export(covid_map2)
 export(elect_count)
 export(state_winner)
 import(devtools)
