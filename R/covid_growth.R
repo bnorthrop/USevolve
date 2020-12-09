@@ -1,24 +1,30 @@
 #' Covid Growth Over Time
 #'
-#' covid_growth streamlines the process for plotting longitudinal changes in
-#' a variable over time.
+#' covid_growth streamlines the process for plotting a line graph to analyze
+#' longitudinal changes in a user-selected variable over time. Variable options include
+#' total cases ("tot_cases"), new cases ("new_cases"), total deaths ("tot_death"), and
+#' new deaths ("new_death").
 #'
 #' @param states region to analyze.
 #' @param value covid statistic to analyze.
 #' @param sum take sum of all cases over states or treat states individually.
 #' @param df_print print a data frame or not.
+#' @param interact whether additional information will display when user hovers over image (use ggplot or plotly)
 #' @param ... pass other arguments
 #'
 #' @import plyr dplyr ggplot2 maps plotly
 #' @export
 #'
-#' @return a list (plotly object and htmlwidget) CHECK
+#' @seealso [ggplot2::ggplot()]
+#'
+#' @return a plotly or ggplot object.
 #' @examples
 #' covid_growth(states="colorado", df_print=FALSE, sum=FALSE)
 #' covid_growth(states=c("colorado", "nevada"))
 #' covid_growth(states=c("colorado", "nevada", "florida", "california"), df_print=FALSE, sum=FALSE)
+#' covid_growth(states=c("colorado", "nevada", "florida", "california"), interact=FALSE)
 
-covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, ...) {
+covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, interact=TRUE, ...) {
   require(plyr)
   require(dplyr)
   require(ggplot2)
@@ -28,9 +34,6 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, ...) {
 
   if(missing(value)){
     value <- "tot_cases" }
-  # else if(class(value) != "character"){
-  #   value <- as.character(value)
-  # }
   `%notin%` <- Negate(`%in%`)
   if(value %notin% c("tot_cases", "new_cases", "tot_death", "new_death")){
     stop("Please print valid value (statistic) to measure")
@@ -56,16 +59,22 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, ...) {
           select(date, value)
         print(as.data.frame(returned_data)) }
 
-      plotgraph <- ggplot(covid) +
-        geom_line(aes(x=date, y=Value)) +
-        ggtitle("Total Count (United States) - ", value) + xlab("Date") + ylab("Count")
-      ggplotly(plotgraph)
+      if(interact==TRUE){
+        plotgraph <- ggplot(covid) +
+          geom_line(aes(x=date, y=Value)) +
+          ggtitle("Total Count (United States) - ", value) + xlab("Date") + ylab("Count")
+        ggplotly(plotgraph)
+      }
+      else if(interact==FALSE){
+        ggplot(covid) +
+          geom_line(aes(x=date, y=Value)) +
+          ggtitle("Total Count (United States) - ", value) + xlab("Date") + ylab("Count")
+      }
     }
     # Combined for select states
     else {
       filtered_data <- covid %>%
         filter(region %in% states)
-      # group_by(date)
 
       # Find state sums
       df <- data.frame(matrix(vector(), 0, 14,
@@ -106,10 +115,17 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, ...) {
           select(date, value)
         print(as.data.frame(returned_data)) }
 
-      plotgraph <- ggplot(filtered_data) +
-        geom_line(aes(x=date, y=Value)) +
-        ggtitle("Select States Combined - ", value) + xlab("Date") + ylab("Count")
-      ggplotly(plotgraph)
+      if(interact==TRUE){
+        plotgraph <- ggplot(filtered_data) +
+          geom_line(aes(x=date, y=Value)) +
+          ggtitle("Select States Combined - ", value) + xlab("Date") + ylab("Count")
+        ggplotly(plotgraph)
+      }
+      else if(interact==FALSE){
+        ggplot(filtered_data) +
+          geom_line(aes(x=date, y=Value)) +
+          ggtitle("Select States Combined - ", value) + xlab("Date") + ylab("Count")
+      }
     }
   }
   ############################
@@ -140,22 +156,31 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, ...) {
         select(date, region, value)
       print(as.data.frame(returned_data))}
 
-    plotgraph <- filtered_data %>%
-      group_by(region) %>%
-      ggplot() +
-      geom_line(aes(x=date, y=Value, col=region)) +
-      ggtitle("Occurance by State", value) + xlab("Date") + ylab("Count")
-    ggplotly(plotgraph)
+    if(interact==TRUE){
+      plotgraph <- filtered_data %>%
+        group_by(region) %>%
+        ggplot() +
+        geom_line(aes(x=date, y=Value, col=region)) +
+        ggtitle("Occurance by State", value) + xlab("Date") + ylab("Count")
+      ggplotly(plotgraph)
+    }
+    else if(interact==FALSE){
+      filtered_data %>%
+        group_by(region) %>%
+        ggplot() +
+        geom_line(aes(x=date, y=Value, col=region)) +
+        ggtitle("Occurance by State", value) + xlab("Date") + ylab("Count")
+    }
+
   }
 }
-
-
-# DO WE WANT TO MAKE IT WORK FOR MULTIPLE VALUES IN ONE PLOT??
 
 # covid_growth(states=c("california", "virginia", "new york", "arizona"), sum=T)
 #
 # covid_growth(sum=T)
 # covid_growth(states=c("colorado", "nevada", "florida", "california"), sum=F)
+# covid_growth(states=c("colorado", "nevada", "florida", "california"), interact=F)
+#
 #
 # covid_growth(value="tot_cases", df_print=F)
 #
@@ -176,6 +201,6 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, ...) {
 #
 # covid_growth(value="new_cases", states=c("colorado", "nevada", "florida", "california"), sum=F)
 # covid_growth(value="tot_death", states=c("colorado", "nevada", "florida", "california"), sum=F)
-
+#
 
 

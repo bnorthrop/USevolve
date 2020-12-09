@@ -20,7 +20,7 @@ Here is a brief article on using the `USevolve` package.
 
 ### Description
 
-FINALIZE DESCRIPTION
+Inspired by the rather crazy and intense events that have shaped this year, we have created a two-part package that helps to visualize both election data and Covid-19 data in the United States. The `USevolve` package simplifies the creation of chloropleth maps and line graphs using `ggplot2` to aid users looking to create specific visualizations with the latest coronavirus and US election data. As new data comes in, we hope this package will provide ongoing insights into both events.
 
 ### Examples
 

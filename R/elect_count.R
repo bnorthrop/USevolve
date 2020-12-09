@@ -1,6 +1,8 @@
-#' Election Count
+#' Election Count (Voter Turnout)
 #'
-#' elect_count creates a map of the United States with fill color based on the specified parameter.
+#' elect_count creates a chloropleth map of the United States on the
+#' state or county levelwith fill color based on voter turnout for the
+#' given presidential election year.
 #'
 #' @param level what region size to visualize (state or county).
 #' @param Year year. For built in election data, year must align with US election years.
@@ -18,17 +20,15 @@
 #' elect_count(level="county", states = c("connecticut", "rhode island"), log=FALSE)
 #'
 
-# Note: Does not work with longitudinal data (e.g. Covid changes over months)
-
 elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE, ...){
   require(dplyr)
   require(ggplot2)
   require(maps)
   # Load map data
-  county_map <- county_map
-  county_pres <- county_pres
-  state_map <- state_map
-  state_pres <- state_pres
+  county_map <- USevolve:::county_map
+  county_pres <- USevolve:::county_pres
+  state_map <- USevolve:::state_map
+  state_pres <- USevolve:::state_pres
 
   if (level=="state" & missing(Year)){
     Year=2016 }
@@ -81,7 +81,7 @@ elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE,
       expand_limits(x = filtered_map$long, y = filtered_map$lat) +
       scale_fill_distiller("Voter Count", palette=pal, direction=1) +
       coord_map("albers", lat0=30, lat1=40) +
-      ggtitle("Election Count Map", Year) }
+      ggtitle("Election Count Map", Year) + xlab("Longitude") + ylab("Latitude") }
   else{
     ggplot(...)+
       geom_map(data=filtered_map, aes(map_id= region), map = filtered_map) +
@@ -89,7 +89,7 @@ elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE,
       expand_limits(x = filtered_map$long, y = filtered_map$lat) +
       scale_fill_distiller("Voter Count (Log)", palette=pal, direction=1, trans="log") +
       coord_map("albers", lat0=30, lat1=40) +
-      ggtitle("Election Count Map", Year) }
+      ggtitle("Election Count Map", Year) + xlab("Longitude") + ylab("Latitude") }
 }
 
 # elect_count()

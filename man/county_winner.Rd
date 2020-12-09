@@ -4,7 +4,7 @@
 \alias{county_winner}
 \title{County Winner}
 \usage{
-county_winner(Year = 2016, states = c())
+county_winner(Year = 2016, states = c(), label = "candidate")
 }
 \arguments{
 \item{Year}{United States Presidential Election year starting in 2000.}
@@ -15,9 +15,13 @@ county_winner(Year = 2016, states = c())
 a ggplot map object.
 }
 \description{
-county_winner displays a map of presidential election results by party on the county level
+county_winner displays a chloropleth map of United States presidential election
+results by party on the county level for a given year.
 }
 \examples{
 county_winner(Year = 2008)
 county_winner(Year = 2000, states=c("texas", "oklahoma"))
+}
+\seealso{
+\code{\link[=state_winner]{state_winner()}}
 }

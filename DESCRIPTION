@@ -1,13 +1,21 @@
 Package: USevolve
 Title: US Election and Covid Evolution
 Version: 0.0.1
-Authors@R: 
+Authors@R: c(
     person(given = "Blake",
            family = "Northrop",
            role = c("aut", "cre"),
-           email = "bsnorthrop@wesleyan.edu")
-Description: USevolve simplifies plotting of US election maps and
-    Covid-19 data over time.
+           email = "bsnorthrop@wesleyan.edu"),
+    person(given = "Shea",
+           family = "Peretz",
+           role = "aut",
+           email = "lperetz@wesleyan.edu"))
+Description: Inspired by the rather crazy and intense events that 
+    have shaped this year, we have created a two-part package that helps to visualize 
+    both election data and Covid-19 data in the United States. The `USevolve` package 
+    simplifies the creation of chloropleth maps and line graphs using `ggplot2` to 
+    aid users looking to create specific visualizations with the latest coronavirus 
+    and US election data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

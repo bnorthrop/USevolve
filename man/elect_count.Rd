@@ -2,7 +2,7 @@
 % Please edit documentation in R/elect_count.R
 \name{elect_count}
 \alias{elect_count}
-\title{Election Count}
+\title{Election Count (Voter Turnout)}
 \usage{
 elect_count(
   level = "state",
@@ -30,7 +30,9 @@ elect_count(
 a ggplot map object.
 }
 \description{
-elect_count creates a map of the United States with fill color based on the specified parameter.
+elect_count creates a chloropleth map of the United States on the
+state or county levelwith fill color based on voter turnout for the
+given presidential election year.
 }
 \examples{
 elect_count()
