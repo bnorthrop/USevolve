@@ -1,6 +1,6 @@
 #' Covid Map
 #'
-#' covid_map automatically loads the latest COVID-19 data from the CDC and plots a chloropleth
+#' covid_map automatically loads the latest COVID-19 data from the CDC and plots a leaflet
 #' map of the United States based on the fill value the user specifies. Fill options include
 #' total cases ("tot_cases"), new cases ("new_cases"), total deaths ("tot_death"), and
 #' new deaths ("new_death").
@@ -14,7 +14,7 @@
 #'
 #' @return a leaflet object.
 #' @examples
-#' covid_map(value="new_death", Date="2020-12-01")
+#' covid_map(value="new_death", Date="2020-12-01", pal="BuPu)
 
 covid_map <- function(value, Date="2020-12-02", pal="YlOrRd"){
 

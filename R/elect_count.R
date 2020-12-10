@@ -1,7 +1,7 @@
 #' Election Count (Voter Turnout)
 #'
-#' elect_count creates a chloropleth map of the United States on the
-#' state or county levelwith fill color based on voter turnout for the
+#' elect_count creates a choropleth map of the United States on the
+#' state or county level with fill color based on voter turnout for the
 #' given presidential election year.
 #'
 #' @param level what region size to visualize (state or county).
@@ -9,7 +9,6 @@
 #' @param states list of states user wants to visualize.
 #' @param pal a color palette.
 #' @param log fill based on log of count.
-#' @param ... pass other arguments
 #'
 #' @import dplyr ggplot2 maps
 #' @export
@@ -20,7 +19,7 @@
 #' elect_count(level="county", states = c("connecticut", "rhode island"), log=FALSE)
 #'
 
-elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE, ...){
+elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE){
   # Load map data
   county_map <- USevolve:::county_map
   county_pres <- USevolve:::county_pres
@@ -72,7 +71,7 @@ elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE,
   else if (Year %in% 2020 == F){
     stop("Must enter a valid election year for region") }
   if(log==FALSE){
-    ggplot(...)+
+    ggplot()+
       geom_map(data=filtered_map, aes(map_id= region), map = filtered_map) +
       geom_map(data=filtered_results, aes(map_id= region, fill=totalvotes), map = filtered_map) +
       expand_limits(x = filtered_map$long, y = filtered_map$lat) +
@@ -80,7 +79,7 @@ elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE,
       coord_map("albers", lat0=30, lat1=40) +
       ggtitle("Election Count Map", Year) + xlab("Longitude") + ylab("Latitude") }
   else{
-    ggplot(...)+
+    ggplot()+
       geom_map(data=filtered_map, aes(map_id= region), map = filtered_map) +
       geom_map(data=filtered_results, aes(map_id= region, fill=totalvotes), map = filtered_map) +
       expand_limits(x = filtered_map$long, y = filtered_map$lat) +

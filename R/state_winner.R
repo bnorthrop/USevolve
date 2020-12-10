@@ -1,6 +1,6 @@
 #' State Winner
 #'
-#' state_winner displays a chloropleth map of United States presidential election
+#' state_winner displays a choropleth map of United States presidential election
 #' results by party on the state level for a given year.
 #'
 #' @param Year United States Presidential Election year starting in 1976.
