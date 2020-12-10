@@ -175,7 +175,7 @@ covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, interact=
   }
 }
 
-# covid_growth(states=c("california", "virginia", "new york", "arizona"), sum=T)
+# covid_growth(states=c("california", "virginia", "new york", "arizona"), sum=F)
 #
 # covid_growth(sum=T)
 # covid_growth(states=c("colorado", "nevada", "florida", "california"), sum=F)
