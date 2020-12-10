@@ -121,7 +121,7 @@ total cases ("tot_cases"), new cases ("new_cases"), total deaths ("tot_death"), 
 new deaths ("new_death").</p>
     </div>
 
-    <pre class="usage"><span class='fu'>covid_map</span><span class='op'>(</span><span class='va'>value</span>, Date <span class='op'>=</span> <span class='st'>"2020-12-02"</span>, pal <span class='op'>=</span> <span class='st'>"YlOrRd"</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>covid_map</span><span class='op'>(</span><span class='va'>value</span>, Date <span class='op'>=</span> <span class='st'>"2020-12-02"</span>, pal <span class='op'>=</span> <span class='st'>"YlOrRd"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -132,15 +132,11 @@ new deaths ("new_death").</p>
     </tr>
     <tr>
       <th>Date</th>
-      <td><p>a date in form "YYYY-MM-DD".  --&gt; CHOOSE DEFAULT</p></td>
+      <td><p>a date in form "YYYY-MM-DD".</p></td>
     </tr>
     <tr>
       <th>pal</th>
       <td><p>a color palette.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>pass other arguments</p></td>
     </tr>
     </table>
 
@@ -149,8 +145,8 @@ new deaths ("new_death").</p>
     <p>a ggplot map object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>covid_map</span><span class='op'>(</span>Value<span class='op'>=</span><span class='st'>"new_death"</span>, Date<span class='op'>=</span><span class='st'>"2020-12-01"</span><span class='op'>)</span>
-</div><div class='img'><img src='covid_map-1.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>covid_map</span><span class='op'>(</span>value<span class='op'>=</span><span class='st'>"new_death"</span>, Date<span class='op'>=</span><span class='st'>"2020-12-01"</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

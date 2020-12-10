@@ -14,7 +14,7 @@ covid_map(value, Date = "2020-12-02", pal = "YlOrRd")
 \item{pal}{a color palette.}
 }
 \value{
-a ggplot map object.
+a leaflet object.
 }
 \description{
 covid_map automatically loads the latest COVID-19 data from the CDC and plots a chloropleth

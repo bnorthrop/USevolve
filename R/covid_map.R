@@ -12,7 +12,7 @@
 #' @import dplyr ggplot2 leaflet readr data.table RColorBrewer stringr geojsonio
 #' @export
 #'
-#' @return a ggplot map object.
+#' @return a leaflet object.
 #' @examples
 #' covid_map(value="new_death", Date="2020-12-01")
 
