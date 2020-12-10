@@ -53,7 +53,7 @@ covid_map <- function(value, Date="2020-12-02", pal="YlOrRd", ...){
 
 }
 
-# covid_map()
+#covid_map()
 #
 # covid_map(Value="new_cases")
 # covid_map(Value="new_death", Date="2020-07-04")
