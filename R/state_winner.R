@@ -5,6 +5,7 @@
 #'
 #' @param Year United States Presidential Election year starting in 1976.
 #' @param states region to plot.
+#' @param label legend labels.
 #'
 #' @import dplyr ggplot2 maps
 #' @export
@@ -18,9 +19,6 @@
 
 # Create function
 state_winner <- function(Year=2016, states=c(), label="candidate"){
-  require(dplyr)
-  require(ggplot2)
-  require(maps)
 
   state_map <- USevolve:::state_map
   state_pres <- USevolve:::state_pres

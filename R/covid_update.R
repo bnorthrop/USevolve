@@ -6,8 +6,6 @@
 #' @keywords internal
 
 covid_update <- function(){
-  require(dplyr)
-  require(plyr)
 
   covid <- read.csv("https://data.cdc.gov/api/views/9mfq-cb36/rows.csv?accessType=DOWNLOAD")
 

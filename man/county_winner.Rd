@@ -10,6 +10,8 @@ county_winner(Year = 2016, states = c(), label = "candidate")
 \item{Year}{United States Presidential Election year starting in 2000.}
 
 \item{states}{region to plot.}
+
+\item{label}{legend labels.}
 }
 \value{
 a ggplot map object.

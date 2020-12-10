@@ -4,16 +4,14 @@
 \alias{covid_map}
 \title{Covid Map}
 \usage{
-covid_map(value, Date = "2020-12-02", pal = "YlOrRd", ...)
+covid_map(value, Date = "2020-12-02", pal = "YlOrRd")
 }
 \arguments{
 \item{value}{covid statistic to analyze.}
 
-\item{Date}{a date in form "YYYY-MM-DD".  --> CHOOSE DEFAULT}
+\item{Date}{a date in form "YYYY-MM-DD".}
 
 \item{pal}{a color palette.}
-
-\item{...}{pass other arguments}
 }
 \value{
 a ggplot map object.
@@ -25,5 +23,5 @@ total cases ("tot_cases"), new cases ("new_cases"), total deaths ("tot_death"), 
 new deaths ("new_death").
 }
 \examples{
-covid_map(Value="new_death", Date="2020-12-01")
+covid_map(value="new_death", Date="2020-12-01")
 }

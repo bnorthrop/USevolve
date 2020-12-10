@@ -21,9 +21,6 @@
 #'
 
 elect_count <- function(level="state", Year, states=c(), pal="YlOrRd", log=TRUE, ...){
-  require(dplyr)
-  require(ggplot2)
-  require(maps)
   # Load map data
   county_map <- USevolve:::county_map
   county_pres <- USevolve:::county_pres

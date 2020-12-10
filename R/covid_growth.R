@@ -25,10 +25,7 @@
 #' covid_growth(states=c("colorado", "nevada", "florida", "california"), interact=FALSE)
 
 covid_growth <- function(states=c(), value, sum=FALSE, df_print=FALSE, interact=TRUE, ...) {
-  require(plyr)
-  require(dplyr)
-  require(ggplot2)
-  require(plotly)
+
   #load latest covid data
   covid <<- covid_update()
 

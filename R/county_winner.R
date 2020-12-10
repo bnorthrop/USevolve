@@ -5,6 +5,7 @@
 #'
 #' @param Year United States Presidential Election year starting in 2000.
 #' @param states region to plot.
+#' @param label legend labels.
 #'
 #' @import dplyr ggplot2 maps devtools
 #' @export
@@ -18,10 +19,7 @@
 
 # Create Function
 county_winner <- function(Year=2016, states=c(), label="candidate"){
-  require(maps)
-  require(dplyr)
-  require(ggplot2)
-  require(devtools)
+
   # load data
   county_map <- USevolve:::county_map
   county_pres <- USevolve:::county_pres

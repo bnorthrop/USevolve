@@ -25,6 +25,6 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-Imports: plyr, dplyr, ggplot2, maps, usethis, tools, plotly, devtools
+Imports: plyr, dplyr, ggplot2, maps, usethis, tools, plotly, devtools, geojsonio, leaflet, readr, data.table, RColorBrewer, stringr
 Depends: 
     R (>= 2.10)
